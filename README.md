@@ -1,10 +1,9 @@
-# Giphy Tutorial
+# Portfolio Projects App
 
 ## What you will learn
 
-Throughout this tutorial, you will be introduced to developing a simple web server in NodeJS using ExpressJS. You will learn server-side templating using Handlebars.js and using the Giphy.com API to search and display gifs.
+As a young developer, its important to show off what you've made so people know what you can do. Having a portfolio website is a great way to keep track of what you've built and learned and be able to share it with other people. In this tutorial we are going to build a site that lets you track the projects you've built and things you've learned.
 
 After completing this tutorial, you will be able to:
-* Define a route or url endpoint in ExpressJS.
-* Create layout templates and sub-templates.
-* Use the Giphy API to search for GIFs.
+* Create, Read, Update, and Delete (CRUD) a single resource in an ExpressJS app using MongoDB.
+* Push a project to Heroku

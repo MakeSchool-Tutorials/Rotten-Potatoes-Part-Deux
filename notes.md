@@ -1,14 +1,19 @@
-1. Install node and npm
-1. hello world an express project
------
-1. Add a templating engine
-1. Add a route to '/'
-1. Add a search form
------
-1. Have the form add url params `/search?term=blah`
-1. Add the `/search` endpoint. Send template
-1. Parse the url params in the `/search` endpoint
-1. Curl the giphy API
-1. Send in the term into the giphy API search
-1. Render response in template
-1. Make it pretty - add css file. Define header, footer, container, and grid.
+1. Bootstrap npm and expressjs - hello world
+  Add templating engine - hello world
+1. Index projects with hard coded data in file - projects-index.handlebars
+1. Add MongoDB
+1. Create a new project - projects-new.handlebars
+1. Show project - projects-show.handlebars
+1. Edit/Update a project
+1. Push to Heroku
+
+
+
+We've been putting all our logic in one file `app.js`, except our views. Now we are going to create a new folder called `models`, and create a file in there called `project.js`. This is where we'll keep our model logic for our Project resource.
+
+```bash
+$ mkdir models
+$ cd models
+$ touch project.js
+$ cd .. # TO RETURN TO THE ROOT FOLDER OF OUR PROJECT
+```
