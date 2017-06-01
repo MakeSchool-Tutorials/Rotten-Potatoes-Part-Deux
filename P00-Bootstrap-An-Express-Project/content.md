@@ -11,7 +11,7 @@ Let's jump in and bootstrap our Express.js app and add a templating engine.
 
 # Getting Started - Node.JS and `npm`
 
-We're gonna jump right in to starting the new project and provide more context as new topics and concepts come up.
+We're gonna jump right in to starting the new review and provide more context as new topics and concepts come up.
 
 For reference you can look at [ExpressJS's Getting Started](https://expressjs.com/en/starter/installing.html) docs
 
@@ -29,7 +29,7 @@ $ brew install node
 
 # Starting a Node.js & Express.js Project
 
-Use npm to initialize a Node project.
+Use npm to initialize a Node review.
 
 ```bash
 $ mkdir rotten-potatoes
@@ -74,7 +74,7 @@ You should see "Portfolio App listening on port 3000!" output in your terminal. 
 
 Now let's add our templating engine Handlebars.js so our Express.js server can render _server-side HTML templates_.
 
-Instal Handlebars.js to your project.
+Instal Handlebars.js to your review.
 
 ```bash
 $ npm install express-handlebars --save
@@ -100,7 +100,7 @@ $ touch home.handlebars
 $ cd layouts
 $ touch main.handlebars
 $ .. # to go back up a level
-$ .. # to go back up one more level to the root folder of your project
+$ .. # to go back up one more level to the root folder of your review
 ```
 
 Now extend your _root route_ to render `home.handlebars`.

@@ -10,27 +10,27 @@ slug: adding-mongodb
 ```js
 // JS OBJECT
 {
-  title: "Great Project"
+  title: "Great Review"
 }
 ```
 
 ```js
 // JSON OBJECT
 {
-  "title": "Great Project"
+  "title": "Great Review"
 }
 ```
 
-A MongoDB database allows you to save JavaScript Objects or JSON just as they are as **key value pairs**. In a MongoDB each object is called a single **document**, hence why this sort of database is called a **document-based database**. These documents are collected into groups called **collections**. So we will save our project documents in a collection called "projects".
+A MongoDB database allows you to save JavaScript Objects or JSON just as they are as **key value pairs**. In a MongoDB each object is called a single **document**, hence why this sort of database is called a **document-based database**. These documents are collected into groups called **collections**. So we will save our review documents in a collection called "reviews".
 
 MongoDB gives each document a unique identification number with the key **_id** (with an underscore). We'll use that **_id** attribute to retrieve the whole document later. MongoDB is sorta like dropping clothes off at the drycleaners. They put a number on each piece of clothing and give you a ticket for each one. Later we can get that clothing back by matching our ticket to the right number.
 
-So if we saved a new project like this to a MongoDB database:
+So if we saved a new review like this to a MongoDB database:
 
 ```js
 // JS OBJECT
 {
-  title: "A New Project"
+  title: "A New Review"
 }
 ```
 
@@ -40,13 +40,13 @@ Then it will save something like this:
 // MONGODB OBJECT
 {
   _id: "507f1f77bcf86cd799439011",
-  title: "A New Project"
+  title: "A New Review"
 }
 ```
 
 # Installing MongoDB
 
-Our web server is going to save documents in MongoDB, but MongoDB itself has to run on our computer's operating system - it isn't an npm module we load into our project. So let's install it.
+Our web server is going to save documents in MongoDB, but MongoDB itself has to run on our computer's operating system - it isn't an npm module we load into our review. So let's install it.
 
 ```bash
 $ brew update
@@ -63,7 +63,7 @@ The command `mongod` should start MongoDB and now it will be accessible from you
 
 Since our web server (Node.js) and our web framework (Express.js) are both written in JavaScript, our data is represented as JavaScript objects, but we have to save them as MongoDB documents. Now these look almost exactly the same, remember, but they are a tiny bit different. So we use a tool to map our JavaScript Objects to MongoDB documents. This tool is called an **ODM** or a **Object Document Mapper**. In Express.js, the most popular MongoDB ODM is called Mongoose.
 
-First, install the mongoose npm module in your project.
+First, install the mongoose npm module in your review.
 
 ```bash
 $ npm install mongoose --save
@@ -82,7 +82,7 @@ Voila, we are connected to our database, but we haven't written or read from it 
 
 # Making a Model
 
-Let's add a model to our project.
+Let's add a model to our review.
 
 ```js
 // app.js
@@ -90,34 +90,34 @@ Let's add a model to our project.
 var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/portfolio-app');
 
-var Project = mongoose.model('Project', {
+var Review = mongoose.model('Review', {
   title: String
 });
 ```
 
 > [info]
-> Notice how the model is capitalized and singular (e.g. `Project`, `Article`, `User`)? This is a universal pattern across many web frameworks to designate models. It looks sorta like a class, right? Classes and models are sorta similar except classes save in recent memory, and models are stored on the database.
+> Notice how the model is capitalized and singular (e.g. `Review`, `Article`, `User`)? This is a universal pattern across many web frameworks to designate models. It looks sorta like a class, right? Classes and models are sorta similar except classes save in recent memory, and models are stored on the database.
 
-Now that we have a model, we can use it to query our database for all the projects we have. At first though there won't be an projects, so we should just expect for the query to return an empty array.
+Now that we have a model, we can use it to query our database for all the reviews we have. At first though there won't be an reviews, so we should just expect for the query to return an empty array.
 
 # Our First MongoDB Query with a Mongoose Model
 
-Let's return to our root path that displays our `projects-index` template.
+Let's return to our root path that displays our `reviews-index` template.
 
-First let's comment out our `projects` variable that we hard coded. We're gonna use the database now instead with the model `Project` we instantiated.
+First let's comment out our `reviews` variable that we hard coded. We're gonna use the database now instead with the model `Review` we instantiated.
 
 ```js
 // app.js
 
-// var projects = [
-//   { title: "Great Project" },
-//   { title: "Next Project" }
+// var reviews = [
+//   { title: "Great Review" },
+//   { title: "Next Review" }
 // ]
 
 // INDEX
 app.get('/', function (req, res) {
-  Project.find(function(err, projects) {
-    res.render('projects-index', {projects: projects});
+  Review.find(function(err, reviews) {
+    res.render('reviews-index', {reviews: reviews});
   })
 })
 ```
@@ -127,6 +127,6 @@ A Mongoose model has all kinds of functions we can call on it to query, create, 
 Refresh browser at `localhost:3000`. What do you see?
 
 > [solution]
-> You shouldn't see anything! :D - that's because there are no projects in your database right now.
+> You shouldn't see anything! :D - that's because there are no reviews in your database right now.
 
-In the next lesson we will save a new project to our database. Onward!
+In the next lesson we will save a new review to our database. Onward!
