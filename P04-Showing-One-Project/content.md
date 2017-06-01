@@ -1,6 +1,6 @@
 ---
 title: "Show Route: See One Resource"
-slug: see-one-project
+slug: showing-one-project
 ---
 
 We are building out all the RESTful routes for our `Project` resource.
