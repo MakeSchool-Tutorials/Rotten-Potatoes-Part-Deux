@@ -3,7 +3,11 @@ title: "Bootstrap An Express Project"
 slug: bootstrap-an-express-project
 ---
 
-As a young developer, its important to show off what you've made so people know what you can do. Having a portfolio website is a great way to keep track of what you've built and learned and be able to share it with other people. In this tutorial we are going to build a site that lets you track the projects you've built and things you've learned.
+You might know the website [Rotten Tomatoes](rottentomatoes.com) where people can review movies. Well in this tutorial we are going to build Rotten Potatoes - our very own movie review website.
+
+By finishing this tutorial you will continue to deepen your knowledge of Node.js and Express.js as well as master the internet-wide paradigms of RESTful and Resourceful routing. You will be Creating, Reading, Updating, and Deleting (CRUD) a single `Review` resource. You will also learn how to use a MongoDB document-based database with Express.js.
+
+Let's jump in and bootstrap our Express.js app and add a templating engine.
 
 # Getting Started - Node.JS and `npm`
 
@@ -28,8 +32,8 @@ $ brew install node
 Use npm to initialize a Node project.
 
 ```bash
-$ mkdir portfolio-app
-$ cd portfolio-app
+$ mkdir rotten-potatoes
+$ cd rotten-potatoes
 $ npm init
 # (hit enter for each option it asks for to select the default choice)
 ```
@@ -115,7 +119,7 @@ app.get('/', function (req, res) {
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Example App</title>
+    <title>Rotten Potatoes</title>
 </head>
 <body>
 
@@ -131,5 +135,3 @@ app.get('/', function (req, res) {
 ```
 
 Now when you visit `localhost:3000` you should still see "Hello World!" but now inside an `h1` tag.
-
-#
