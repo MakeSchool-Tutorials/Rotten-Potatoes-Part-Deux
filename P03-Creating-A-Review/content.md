@@ -89,6 +89,7 @@ But first, we need to get ready to accept form data using an npm module called `
 $ npm install body-parser --save
 ```
 
+Now initialize the `body-parser` module in our `app.js` file.
 
 ```js
 // app.js
@@ -124,7 +125,7 @@ So now let's use that form data to save a new review to our MongoDB database usi
 app.post('/reviews', function (req, res) {
   Review.create(req.body, function(err, review) {
     console.log(review);
-    
+
     res.redirect('/');
   })
 })
@@ -139,16 +140,25 @@ The new action will be our form for making a new review. For now reviews just ha
 First let's add what the user sees - the `reviews-new.handlebars` form input field.
 
 ```html
-<!-- reviews-index.handlebars -->
-  ...
+<!-- reviews-new.handlebars -->
 
+<legend>New Review</legend>
+<form method="POST" action="/reviews">
+  <!-- TITLE -->
+  <p>
+    <label for="title">Title</label><br>
+    <input type="text" name="title" />
+  </p>
   <!-- DESCRIPTION -->  
   <p>
     <label for="description">Description</label><br>
     <textarea name="description" rows="10" /></textarea>
   </p>
-
-  ...
+  <!-- BUTTON -->
+  <p>
+    <button type="submit">Save Review</button>
+  </p>
+</form>
 ```
 
 Next, let's add the `description` attribute to the `Review` model.

@@ -75,7 +75,7 @@ Now initialize mongoose in `app.js` and connect to our database that we'll name 
 // app.js
 
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/portfolio-app');
+mongoose.connect('mongodb://localhost/rotten-potatoes');
 ```
 
 Voila, we are connected to our database, but we haven't written or read from it at all. Boring! In order to write and read data from our MongoDB database with Mongoose, we need to use what is called a **model** - the "M" in **MVC** or the **Model View Controller** architecture of web server development.
@@ -88,7 +88,7 @@ Let's add a model to our review.
 // app.js
 
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/portfolio-app');
+mongoose.connect('mongodb://localhost/rotten-potatoes');
 
 var Review = mongoose.model('Review', {
   title: String
