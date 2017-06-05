@@ -135,7 +135,7 @@ When you submit your form what do you see?
 
 # Adding a New Attribute to our Model
 
-The new action will be our form for making a new review. For now reviews just have one attribute `title`, but we can always add more. Let's add an attribute called `description` so we can write some more details about the review we've done.
+The new action will be our form for making a new review. For now reviews just have one attribute `title`, but we can always add more. Let's add an attribute called `description` and another called `movieTitle` so we can write some more details about the review we've done.
 
 First let's add what the user sees - the `reviews-new.handlebars` form input field.
 
@@ -149,6 +149,13 @@ First let's add what the user sees - the `reviews-new.handlebars` form input fie
     <label for="title">Title</label><br>
     <input type="text" name="title" />
   </p>
+
+  <!-- MOVIE TITLE -->
+  <p>
+    <label for="movieTitle">Movie Title</label><br>
+    <input type="text" name="movieTitle" />
+  </p>
+
   <!-- DESCRIPTION -->  
   <p>
     <label for="description">Description</label><br>
@@ -167,10 +174,15 @@ Next, let's add the `description` attribute to the `Review` model.
 // app.js
 var Review = mongoose.model('Review', {
   title: String,
-  description: String
+  description: String,
+  movieTitle: String
 });
 ```
 
 You can create any attributes you like for your model and use various data types such as: `String`, `Number`, and `Date`.
 
 Can you resubmit the form? What happens now?
+
+# Extra Credit: Adding a Rating Attribute
+
+Can you add a rating attribute that is a `Number`, and then use `<select>` and `<option>`'s elements to have a dropdown for users to select `0-5` a stars rating? You might have to google for an example to see how this works.

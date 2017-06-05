@@ -26,7 +26,8 @@ So let's make the edit link:
 <h1>Reviews</h1>
 {{#each reviews}}
   <a href="/reviews/{{this._id}}">
-    <h3>{{this.title}}</h3>
+    <h5>{{this.title}}</h5>
+    <small>{{this.movieTitle}}</small>
   </a>
   <a href="/reviews/{{this._id}}/edit">Edit</a>
 {{/each}}
@@ -61,6 +62,13 @@ And of course we'll need that `reviews-edit` template. This template is a bit we
     <label for="title">Title</label><br>
     <input type="text" name="title" value="{{review.title}}"/>
   </p>
+
+  <!-- MOVIE TITLE -->
+  <p>
+    <label for="movieTitle">Movie Title</label><br>
+    <input type="text" name="movieTitle" value="{{review.movieTitle}}" />
+  </p>
+
   <!-- DESCRIPTION -->  
   <p>
     <label for="description">Description</label><br>
@@ -115,6 +123,13 @@ First make a folder called `partials` inside the `views` folder. Now in that `pa
   <label for="title">Title</label><br>
   <input type="text" name="title" value="{{review.title}}"/>
 </p>
+
+<!-- MOVIE TITLE -->
+<p>
+  <label for="movieTitle">Movie Title</label><br>
+  <input type="text" name="movieTitle" value="{{review.movieTitle}}" />
+</p>
+
 <!-- DESCRIPTION -->  
 <p>
   <label for="description">Description</label><br>
@@ -148,3 +163,7 @@ And now we can use this partial to replace that information in both our new and 
 ```
 
 Triumph! DRY code. (Don't Repeat Yourself)
+
+# Extra: "Cancel" buttons
+
+Sometimes people might start making a resource and then want to cancel. Can you add a "Cancel" button next to the "Save Review" button? What will it do? Where will it link to?

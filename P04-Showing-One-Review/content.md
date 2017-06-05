@@ -23,7 +23,8 @@ MongoDB automatically creates an `_id` attribute on anything you save. So we can
 <h1>Reviews</h1>
 {{#each reviews}}
   <a href="/reviews/{{this._id}}">
-    <h3>{{this.title}}</h3>
+    <h5>{{this.title}}</h5>
+    <small>{{this.movieTitle}}</small>
   </a>
 {{/each}}
 ```
@@ -66,6 +67,7 @@ Now if we go to the route, we'll see the error that no template `reviews-show` i
 <!-- views/reviews-show.handlebars -->
 
 <h1>{{review.title}}</h1>
+<h5>{{review.movieTitle}}</h5>
 <p>{{review.description}}</p>
 ```
 
@@ -81,6 +83,7 @@ This is good, the show action is working, but there is a bit of a problem. Once 
 <a href="/">Back to Home</a>
 
 <h1>{{review.title}}</h1>
+<h5>{{review.movieTitle}}</h5>
 <p>{{review.description}}</p>
 
 ```

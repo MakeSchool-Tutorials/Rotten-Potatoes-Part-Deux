@@ -48,7 +48,8 @@ Now let's add the template `views/reviews-index.handlebars`. We're going to use 
 ```html
 <h1>Reviews</h1>
 {{#each reviews}}
-  <h3>{{this.title}}</h3>
+  <h5>{{this.title}}</h5>
+  <small>{{this.movieTitle}}</small>
 {{/each}}
 ```
 

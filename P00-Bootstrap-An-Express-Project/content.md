@@ -118,12 +118,12 @@ app.get('/', function (req, res) {
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8">
-    <title>Rotten Potatoes</title>
+  <meta charset="utf-8">
+  <title>Rotten Potatoes</title>
 </head>
 <body>
 
-    {{{body}}}
+  {{{body}}}
 
 </body>
 </html>

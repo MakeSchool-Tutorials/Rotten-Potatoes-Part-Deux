@@ -87,3 +87,7 @@ Now if we try to open our heroku app what happens?
 ```bash
 $ heroku open
 ```
+
+# WooHoo!
+
+Awwww yeah - you did it! You made your first RESTful and Resourceful app using Node.js, Express.js, and MongoDB!

@@ -17,7 +17,8 @@ We can't set an `<a>` tag's method (it is always GET) so we are going to use a f
 <h1>Reviews</h1>
 {{#each reviews}}
   <a href="/reviews/{{this._id}}">
-    <h3>{{this.title}}</h3>
+    <h5>{{this.title}}</h5>
+    <small>{{this.movieTitle}}</small>
   </a>
   <a href="/reviews/{{this._id}}/edit">Edit</a>
   <form method="POST" action="/reviews/{{this._id}}?_method='DELETE'">
