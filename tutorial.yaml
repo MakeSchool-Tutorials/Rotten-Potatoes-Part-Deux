@@ -1,4 +1,4 @@
-title: "Your Project Portfolio Site with Express.js"
+title: "Rotten Potatoes - Movie Reviews with Express.js"
 cover: cover.jpg
 teaser_text: |
-    Learn the fundamentals of MVC web development using an advanced and flexible stack. Node.js, Express.js, and MongoDB.
+    Learn the fundamentals of Model View Controller server architecture and RESTful and Resourceful routing with Node.js, Express.js, and MongoDB.
