@@ -5,6 +5,8 @@ slug: deleting-a-review
 
 So we've come to the end of our RESTful and Resourceful routes. Only one to go: Delete.
 
+![RESTful Routes](assets/RESTful-routes.png)
+
 # What the User Sees
 
 As always, we start with what the users sees and does. So let's make a link to delete a review.

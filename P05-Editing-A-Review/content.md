@@ -86,6 +86,10 @@ And of course we'll need that `reviews-edit` template. This template is a bit we
 
 Now remember that we needed to intercept that POST request and make sure its processed as a PUT request so it goes to our update action. (this will work for our delete action later too!). We'll use the [method-override]((https://github.com/expressjs/method-override)) middleware.
 
+```bash
+$ npm install method-override --save
+```
+
 ```js
 // app.js
 var express = require('express')
@@ -164,6 +168,6 @@ And now we can use this partial to replace that information in both our new and 
 
 Triumph! DRY code. (Don't Repeat Yourself)
 
-# Extra: "Cancel" buttons
+# Extra Credit: "Cancel" buttons
 
 Sometimes people might start making a resource and then want to cancel. Can you add a "Cancel" button next to the "Save Review" button? What will it do? Where will it link to?
