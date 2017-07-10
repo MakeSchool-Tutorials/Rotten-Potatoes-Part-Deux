@@ -3,7 +3,7 @@ title: "Push to Production with Heroku"
 slug: push-to-heroku
 ---
 
-Time to ship some code! Since we've built and styled our Rotten Potatoes app, let's show it to the world by putting it online. We'll use a service called [Heroku](heroku.com) that is free, but it does require a **credit card** to be on file.
+Time to ship some code! Since we've built and styled our Rotten Potatoes app, let's show it to the world by putting it online. We'll use a service called [Heroku](https://www.heroku.com) that is free, but it does require a **credit card** to be on file.
 
 > This lesson is optional because you will need to give your credit card information to Heroku, even though Heroku will host your site for free.
 
