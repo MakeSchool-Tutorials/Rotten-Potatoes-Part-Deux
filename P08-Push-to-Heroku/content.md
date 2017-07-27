@@ -9,7 +9,7 @@ Time to ship some code! Since we've built and styled our Rotten Potatoes app, le
 
 # Sign Up For and Install Heroku
 
-First you need to create a Heroku account at [heroku.com](heroku.com).
+First you need to create a Heroku account at [https://heroku.com](heroku.com).
 
 Then you will need to add the Heroku Command Line Interface (CLI) to your bash terminal so we can interact with the Heroku service via the terminal and git.
 
