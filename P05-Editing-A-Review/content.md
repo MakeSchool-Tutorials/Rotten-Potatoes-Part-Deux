@@ -152,7 +152,7 @@ And now we can use this partial to replace that information in both our new and 
 
 <legend>New Review</legend>
 <form method="POST" action="/reviews">
-  {{> partials/reviews-form }}
+  {{> reviews-form }}
 </form>
 
 ```
@@ -162,7 +162,7 @@ And now we can use this partial to replace that information in both our new and 
 
 <legend>Edit Review</legend>
 <form method="POST" action="/reviews?_method=PUT">
-  {{> partials/reviews-form }}
+  {{> reviews-form }}
 </form>
 ```
 
