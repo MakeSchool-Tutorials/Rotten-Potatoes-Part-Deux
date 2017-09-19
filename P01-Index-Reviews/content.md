@@ -64,9 +64,7 @@ Let's update the `/reviews` route to be our root route. Just change the path fro
 
 // INDEX
 app.get('/', function (req, res) {
-  Review.find().exec(function (err, reviews) {
-    res.render('reviews-index', {reviews: reviews});
-  })
+  res.render('reviews-index', {reviews: reviews});
 })
 ```
 
