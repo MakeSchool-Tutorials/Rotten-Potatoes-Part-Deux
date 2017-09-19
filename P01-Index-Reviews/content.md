@@ -70,6 +70,6 @@ app.get('/', function (req, res) {
 
 Now navigate to `localhost:3000`.
 
-# Extra Challenge
+# A Challenge
 
 Can you make changes to your `reviews` array in `app.js` and see it reflected in your `reviews-index` template?
