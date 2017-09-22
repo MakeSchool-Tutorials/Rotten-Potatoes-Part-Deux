@@ -107,7 +107,7 @@ Now we can create our update action and it will receive requests with a PUT meth
 ...
 // UPDATE
 app.put('/reviews/:id', function (req, res) {
-  Review.findAndUpdateById(req.params.id,  req.body, function(err, review) {
+  Review.findByIdAndUpdate(req.params.id,  req.body, function(err, review) {
     res.redirect('/reviews/' + review._id);
   })
 })
