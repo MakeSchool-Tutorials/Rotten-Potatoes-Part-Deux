@@ -64,14 +64,12 @@ Let's update the `/reviews` route to be our root route. Just change the path fro
 
 // INDEX
 app.get('/', function (req, res) {
-  Review.find().exec(function (err, reviews) {
-    res.render('reviews-index', {reviews: reviews});
-  })
+  res.render('reviews-index', {reviews: reviews});
 })
 ```
 
 Now navigate to `localhost:3000`.
 
-# Extra Challenge
+# A Challenge
 
 Can you make changes to your `reviews` array in `app.js` and see it reflected in your `reviews-index` template?
