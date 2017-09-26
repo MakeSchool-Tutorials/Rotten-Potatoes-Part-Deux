@@ -56,7 +56,7 @@ And of course we'll need that `reviews-edit` template. This template is a bit we
 <!-- reviews-edit.handlebars -->
 
 <legend>Edit Review</legend>
-<form method="POST" action="/reviews?_method=PUT">
+<form method="POST" action="/reviews/{{review._id}}?_method=PUT">
   <!-- TITLE -->
   <p>
     <label for="title">Title</label><br>
