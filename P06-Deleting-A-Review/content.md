@@ -23,7 +23,7 @@ We can't set an `<a>` tag's method (it is always GET) so we are going to use a f
     <small>{{this.movieTitle}}</small>
   </a>
   <a href="/reviews/{{this._id}}/edit">Edit</a>
-  <form method="POST" action="/reviews/{{this._id}}?_method='DELETE'">
+  <form method="POST" action="/reviews/{{this._id}}?_method=DELETE">
     <button type="submit">Delete</button>
   </form>
 {{/each}}
