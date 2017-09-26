@@ -60,7 +60,7 @@ Let's add the most common navigational component - a top navbar. We'll have it h
         </a>
       </div>
       <div class="pull-right">
-        <a href="/reviews/new" class="btn btn-default navbar-btn">New Review</button>
+        <a href="/reviews/new" class="btn btn-default navbar-btn">New Review</a>
       </div>
     </div>
   </nav>
