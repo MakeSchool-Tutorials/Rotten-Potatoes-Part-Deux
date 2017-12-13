@@ -11,7 +11,15 @@ Resources can also be related to each other. For example, articles may have comm
 
 All resources have a few actions in common that are called RESTful routes. If there was anything worth memorizing in this tutorial, this is it:
 
-![Restful routes](assets/RESTful-routes.png)
+| URL              | HTTP Verb | Action  |
+|------------------|-----------|---------|
+| /photos          | GET       | index   |
+| /photos/new      | GET       | new     |
+| /photos          | POST      | create  |
+| /photos/:id      | GET       | show    |
+| /photos/:id/edit | GET       | edit    |
+| /photos/:id      | PATCH/PUT | update  |
+| /photos/:id      | DELETE    | destroy |
 
 We're going to start with the index action and then show, and then we'll look at the create, edit, update, and delete.
 
