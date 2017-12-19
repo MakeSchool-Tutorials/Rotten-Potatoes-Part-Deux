@@ -152,11 +152,12 @@ So now let's use that form data to save a new review to our MongoDB database usi
 // app.js
 
 // CREATE
-app.post('/reviews', function (req, res) {
-  Review.create(req.body, function(err, review) {
+app.post('/reviews', (req, res) => {
+  Review.create(req.body).then((review) => {
     console.log(review);
-
     res.redirect('/');
+  }).catch((err) => {
+    console.log(err.message);
   })
 })
 ```
@@ -170,39 +171,45 @@ The new action will be our form for making a new review. For now reviews just ha
 First let's add what the user sees - the `reviews-new.handlebars` form input field.
 
 ```html
-<!-- reviews-new.handlebars -->
+<!-- reviews-new -->
 
-<legend>New Review</legend>
 <form method="POST" action="/reviews">
-  <!-- TITLE -->
-  <p>
-    <label for="title">Title</label><br>
-    <input type="text" name="title" />
-  </p>
+  <fieldset>
+    <legend>New Review</legend>
+    <!-- TITLE -->
+    <p>
+      <label for="review-title">Title</label><br>
+      <input id="review-title" type="text" name="title" />
+    </p>
 
-  <!-- MOVIE TITLE -->
-  <p>
-    <label for="movieTitle">Movie Title</label><br>
-    <input type="text" name="movieTitle" />
-  </p>
+    <!-- MOVIE TITLE -->
+    <p>
+      <label for="movie-title">Movie Title</label><br>
+      <input id="movie-title" type="text" name="movieTitle" />
+    </p>
 
-  <!-- DESCRIPTION -->  
-  <p>
-    <label for="description">Description</label><br>
-    <textarea name="description" rows="10" /></textarea>
-  </p>
+    <!-- DESCRIPTION -->
+    <p>
+      <label for="description-text">Description</label><br>
+      <textarea id="description-text" name="description" rows="10" /></textarea>
+    </p>
+  </fieldset>
+
   <!-- BUTTON -->
   <p>
     <button type="submit">Save Review</button>
   </p>
+
 </form>
+
 ```
 
 Next, let's add the `description` attribute to the `Review` model.
 
 ```js
 // app.js
-var Review = mongoose.model('Review', {
+
+const Review = mongoose.model('Review', {
   title: String,
   description: String,
   movieTitle: String
