@@ -10,8 +10,9 @@ We are building out all the RESTful routes for our `Review` resource.
 | /                | GET       | index   |
 | /reviews/new     | GET       | new     |
 | /reviews         | POST      | create  |
+| /reviews/:id     | GET       | show    |
 
-We've already completed the index, new, and create actions.
+We've already completed the index, new, and create actions. Now you will add a show action that will display a single resource via it's id. 
 
 Now let's setup the **show** action so we give each single review its own page and unique url path.
 
