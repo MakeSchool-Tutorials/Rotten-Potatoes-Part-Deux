@@ -8,8 +8,8 @@ Now we're checking off the seven RESTful and Resourceful routes. But we're not d
 * Index
 * Create
 * Show
-* Edit
-* Update
+* **Edit**
+* **Update**
 * Delete
 
 Normally in a site like Rotten Potatoes, we would only want authors of reviews to have the permission to edit or delete a review. However, because we do not have authentication yet, we're just going to let anyone edit and delete reviews.
