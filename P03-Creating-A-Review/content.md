@@ -68,7 +68,7 @@ Now we have to make a route to the `/reviews/new` path, and have it render a `re
 // app.js
 
 // NEW
-app.get('/reviews/new', function (req, res) {
+app.get('/reviews/new', (req, res) => {
   res.render('reviews-new', {});
 })
 ```
