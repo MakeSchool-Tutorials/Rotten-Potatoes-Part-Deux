@@ -40,7 +40,7 @@ $ npm init
 # (hit enter for each option it asks for to select the default choice)
 ```
 
-With the commands above you made a new directory: 'rotten-potatoes', changed to that director, and initialized a new npm project in that directory. 
+With the commands above you made a new directory: 'rotten-potatoes', changed to that directory, and initialized a new npm project in that directory. 
 
 Now add Express.js and touch `app.js`
 
@@ -58,15 +58,15 @@ Open 'app.js' in your favorite text editor. I recommend Atom. You can open your 
 And let's add some standard Express.js code to `app.js`
 
 ```js
-var express = require('express')
-var app = express()
+const express = require('express')
+const app = express()
 
 app.get('/', (req, res) => {
   res.send('Hello World!')
 })
 
 app.listen(3000, () => {
-  console.log('Portfolio App listening on port 3000!')
+  console.log('App listening on port 3000!')
 })
 ```
 
