@@ -130,7 +130,7 @@ First let's comment out our `reviews` variable that we hard coded. We're gonna u
 // ]
 
 // INDEX
-app.get('/', function (req, res) {
+app.get('/', (req, res) => {
   Review.find().then((reviews) => {
     res.render('reviews-index', {reviews: reviews});
   }).catch((err) => {
