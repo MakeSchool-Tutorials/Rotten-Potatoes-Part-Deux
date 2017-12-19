@@ -105,7 +105,7 @@ Let's add a model to our review.
 const mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/rotten-potatoes', { useMongoClient: true });
 
-var Review = mongoose.model('Review', {
+const Review = mongoose.model('Review', {
   title: String
 });
 ```
