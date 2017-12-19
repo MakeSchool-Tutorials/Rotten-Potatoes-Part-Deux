@@ -143,11 +143,11 @@ A Mongoose model has many functions you can call on to query, create, and update
 
 Call `.then()` and provide a function for the promise to call when it resolves. 
 
-`Reviews.find().then(() => { ...executed when the promise resolves... })`
+`Reviews.find().then((review) => { ...executed when the promise resolves... })`
 
 Use `.catch()` and provide a function for the promise to call if the `Promise` is rejected. A `Promise` is rejected if it fails. 
 
-`Reviews.find().then(() => { ... }).catch(() => { ...executed if the promise is rejected... })`
+`Reviews.find().then((review) => { ... }).catch((err) => { ...executed if the promise is rejected... })`
 
 Refresh browser at `localhost:3000`. What do you see?
 
