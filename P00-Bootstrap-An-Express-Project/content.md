@@ -120,7 +120,7 @@ Now extend your _root route_ to render `home.handlebars`.
 ```js
 // app.js
 
-app.get('/', function (req, res) {
+app.get('/', (req, res) => {
   res.render('home', { msg: 'Hello World!' });
 })
 ```
