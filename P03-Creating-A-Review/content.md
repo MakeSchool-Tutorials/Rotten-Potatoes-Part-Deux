@@ -7,8 +7,8 @@ Remember we are doing Resourceful and RESTful architecture to our MVC structured
 
 As for the RESTful routes, we've created just one: the index action for our `Review` resource.
 
-Remember the previous table that showed a hypothetical set of routes for service like Instagram. 
-Here it is again for review. 
+Remember the previous table that showed a hypothetical set of routes for service like Instagram.
+Here it is again for review.
 
 | URL              | HTTP Verb | Action  |
 |------------------|-----------|---------|
@@ -21,7 +21,7 @@ Here it is again for review.
 | /photos/:id      | DELETE    | destroy |
 
 
-What do the routes look like for the app your are currently building? 
+What do the routes look like for the app your are currently building?
 
 
 | URL              | HTTP Verb | Action  |
@@ -43,7 +43,8 @@ First things first - what does the user see?
 The user will have to click "New Review" to create a new review. So let's put a link into the   `reviews-index` template.
 
 ```html
-<!-- reviews-index -->
+<!-- views/reviews-index.handlebars -->
+
 <h1>Reviews</h1>
 
 <a href="/reviews/new">New Review</a>
@@ -76,7 +77,7 @@ app.get('/reviews/new', (req, res) => {
 If we navigate our browsers to `/reviews/new` we'll get a friendly little error reminding us that we don't have a template called `reviews-new.handlebars` yet. So let's put that into our `views` folder.
 
 ```html
-<!-- reviews-new -->
+<!-- views/reviews-new.handlebars -->
 
 <form method="POST" action="/reviews">
   <fieldset>
@@ -171,7 +172,7 @@ The new action will be our form for making a new review. For now reviews just ha
 First let's add what the user sees - the `reviews-new.handlebars` form input field.
 
 ```html
-<!-- reviews-new -->
+<!-- views/reviews-new.handlebars -->
 
 <form method="POST" action="/reviews">
   <fieldset>

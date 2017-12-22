@@ -12,7 +12,7 @@ We are building out all the RESTful routes for our `Review` resource.
 | /reviews         | POST      | create  |
 | /reviews/:id     | GET       | show    |
 
-We've already completed the index, new, and create actions. Now you will add a show action that will display a single resource via it's id. 
+We've already completed the index, new, and create actions. Now you will add a show action that will display a single resource via it's id.
 
 Now let's setup the **show** action so we give each single review its own page and unique url path.
 
@@ -23,7 +23,8 @@ Remember always start with what the user will see and do. To create the show act
 MongoDB automatically creates an `_id` attribute on anything you save. So we can use that `_id` attribute for our `:id` in the route.
 
 ```html
-<!-- reviews-index -->
+<!-- views/reviews-index.handlebars -->
+
 <h1>Reviews</h1>
 
 <a href="/reviews/new">New Review</a>

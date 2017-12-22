@@ -21,7 +21,7 @@ All resources have a few actions in common that are called RESTful routes. If th
 | /photos/:id      | PATCH/PUT | update  |
 | /photos/:id      | DELETE    | destroy |
 
-The table above shows the resources, routes, and actions that might be used on a photo sharing site like Instagram. 
+The table above shows the resources, routes, and actions that might be used on a photo sharing site like Instagram.
 
 We're going to start with the index action and then show, and then we'll look at the create, edit, update, and delete.
 

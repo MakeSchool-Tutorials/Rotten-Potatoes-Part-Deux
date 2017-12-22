@@ -50,7 +50,7 @@ And of course we'll need that `reviews-edit` template. This template is a bit we
 1. **`<textarea>{{}}</textarea>`** - the `<textarea>` HTML tag does not have a `value` attribute, so its contents must go between its open and close tags.
 
 ```html
-<!-- reviews-edit.handlebars -->
+<!-- views/reviews-edit.handlebars -->
 
 <form method="POST" action="/reviews/{{review._id}}?_method=PUT">
   <fieldset>
@@ -157,7 +157,7 @@ First make a folder called `partials` inside the `views` folder. Now in that `pa
 And now we can use this partial to replace that information in both our new and edit templates.
 
 ```html
-<!-- reviews-new -->
+<!-- views/reviews-new.handlebars -->
 
 <form method="POST" action="/reviews">
   {{> reviews-form}}
@@ -171,7 +171,7 @@ And now we can use this partial to replace that information in both our new and 
 ```
 
 ```html
-<!-- reviews-edit.handlebars -->
+<!-- views/reviews-edit.handlebars -->
 
 <form method="POST" action="/reviews/{{review._id}}?_method=PUT">
   {{> reviews-form}}

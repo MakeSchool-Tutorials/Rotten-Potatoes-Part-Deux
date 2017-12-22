@@ -21,7 +21,8 @@ It is easy to get started with bootstrap quickly by using the CDN links bootstra
 We'll add the `<link>` to bootstrap's css in our `<head>` tag in the `main.handlebars` file. And although we aren't going to use any of bootstrap's JavaScript's components, for completeness's sake, we'll put the JavaScript `<script>` tag just before the closing `</body>` tag.
 
 ```html
-<!-- main.handlebars -->
+<!-- views/layouts/main.handlebars -->
+
 <!doctype html>
 <html>
 <head>
@@ -49,13 +50,12 @@ Add the most common navigational component - a top navbar. We'll have it have a 
 Make a new partial. Create a new file `navbar.handlebars` in the `views/partials` directory.
 
 ```html
-<!-- main.handlebars -->
-...
-<!-- navbar.handlebars -->
+<!-- views/partials/navbar.handlebars -->
+
 <nav class="navbar navbar-default">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand" href="#">
+      <a class="navbar-brand" href="/">
         Rotten Potatoes
       </a>
     </div>
@@ -66,7 +66,7 @@ Make a new partial. Create a new file `navbar.handlebars` in the `views/partials
 </nav>
 ```
 
-Include this in `main.handlebars` 
+Include this in `views/layouts/main.handlebars`
 
 ```html
 ...
@@ -85,7 +85,7 @@ People argue about the usefulness of some of the more complex parts of Bootstrap
 We'll start by wrapping the `{{{body}}}` with a `container` class.
 
 ```html
-<!-- main.handlebars -->
+<!-- views/layouts/main.handlebars -->
 ...
 <body>
   ...
@@ -99,12 +99,13 @@ Refresh and see that this gives us some satisfying gutters on the sides of the p
 
 # Adding a Grid Row
 
-Now that you have a container, style your `reviews-index` template to have each review take up 1/4 of the `container`. First  wrap the `{{#each}}` block in a `row` class and then wrap each review in its own `col-sm-3` class. 
+Now that you have a container, style your `reviews-index` template to have each review take up 1/4 of the `container`. First  wrap the `{{#each}}` block in a `row` class and then wrap each review in its own `col-sm-3` class.
 
 `col-sm-3` means: On screens larger than a tablet, have this element take up three cells out of twelve that are the whole width of its parent element. Since 3/12 = 1/4 this will give us each review taking up one quarter of the `container`'s width.
 
 ```html
-<!-- reviews-index -->
+<!-- views/reviews-index.handlebars -->
+
 <h1>Reviews</h1>
 
 <div class="row">
@@ -145,7 +146,7 @@ The show template should make the text relatively narrow, because people don't l
 Now let's add some bootstrap styling to our new and edit templates and to our `reviews-form` template.
 
 ```html
-<!-- reviews-new -->
+<!-- views/reviews-new.handlebars -->
 
 <div class="row">
   <div class="col-sm-6 col-sm-offset-3">
@@ -163,7 +164,7 @@ Now let's add some bootstrap styling to our new and edit templates and to our `r
 Make the same changes to `reviews-edit.handlebars`:
 
 ```html
-<!-- reviews-edit.handlebars -->
+<!-- views/reviews-edit.handlebars -->
 
 <div class="row">
   <div class="col-sm-6 col-sm-offset-3">
@@ -179,9 +180,10 @@ Make the same changes to `reviews-edit.handlebars`:
 
 ```
 
-Now add some Bootstrap classes to `reviews-form.handlebars` partial. 
+Now add some Bootstrap classes to `reviews-form.handlebars` partial. These class will make your form and form elements look better. Notice that each for element is wrapped in a `div` with the class `form-group` and form elements, like `input` get the class `form-control`.
 
 ```html
+...
 <fieldset>
   <legend>Edit Review</legend>
   <!-- TITLE -->
