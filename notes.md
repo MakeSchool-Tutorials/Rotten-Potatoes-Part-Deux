@@ -7,6 +7,7 @@
 1. Edit/Update a project
 1. Push to Heroku
 
+1. Add a second resource with one-to-many association.
 
 
 We've been putting all our logic in one file `app.js`, except our views. Now we are going to create a new folder called `models`, and create a file in there called `project.js`. This is where we'll keep our model logic for our Project resource.

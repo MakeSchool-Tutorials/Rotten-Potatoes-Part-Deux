@@ -117,7 +117,7 @@ First let's comment out our `reviews` variable that we hard coded. We're gonna u
 // INDEX
 app.get('/', function (req, res) {
   Review.find(function(err, reviews) {
-    res.render('reviews-index', {reviews: reviews});
+    res.render('reviews-index', { reviews: reviews });
   })
 })
 ```
