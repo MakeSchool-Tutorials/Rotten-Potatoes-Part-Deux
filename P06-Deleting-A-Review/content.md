@@ -5,7 +5,13 @@ slug: deleting-a-review
 
 So we've come to the end of our RESTful and Resourceful routes. Only one to go: Delete.
 
-![RESTful Routes](assets/RESTful-routes.png)
+| URL              | HTTP Verb | Action  |
+|------------------|-----------|---------|
+| /                | GET       | index   |
+| /reviews/new     | GET       | new     |
+| /reviews         | POST      | create  |
+| /reviews/:id     | GET       | show    |
+| /reviews/:id     | DELETE    | Destroy |
 
 # What the User Sees
 
@@ -14,19 +20,16 @@ As always, we start with what the users sees and does. So let's make a link to d
 We can't set an `<a>` tag's method (it is always GET) so we are going to use a form to submit a DELETE request to our delete action path.
 
 ```html
-<!-- reviews-index.handlebars -->
+<!-- views/reviews-show.handlebars -->
 
-<h1>Reviews</h1>
-{{#each reviews}}
-  <a href="/reviews/{{this._id}}">
-    <h5>{{this.title}}</h5>
-    <small>{{this.movieTitle}}</small>
-  </a>
-  <a href="/reviews/{{this._id}}/edit">Edit</a>
-  <form method="POST" action="/reviews/{{this._id}}?_method=DELETE">
+<h1>{{review.title}}</h1>
+<h2>{{review.movieTitle}}</h2>
+<p>{{review.description}}</p>
+<p><a href="/reviews/{{review._id}}/edit">Edit</a></p>
+<!-- Delete button -->
+<p><form method="POST" action="/reviews/{{review._id}}?_method=DELETE">
     <button type="submit">Delete</button>
-  </form>
-{{/each}}
+</form></p>
 ```
 
 Now we need a delete action route. After deleting the review, it should redirect to the home page (`reviews-index`).
@@ -36,8 +39,11 @@ Now we need a delete action route. After deleting the review, it should redirect
 ...
 // DELETE
 app.delete('/reviews/:id', function (req, res) {
-  Review.findByIdAndRemove(req.params.id, function(err) {
+  console.log("DELETE review")
+  Review.findByIdAndRemove(req.params.id).then((review) => {
     res.redirect('/');
+  }).catch((err) => {
+    console.log(err.message);
   })
 })
 ```

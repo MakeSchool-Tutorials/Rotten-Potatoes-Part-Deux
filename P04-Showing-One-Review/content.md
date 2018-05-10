@@ -5,27 +5,33 @@ slug: showing-one-review
 
 We are building out all the RESTful routes for our `Review` resource.
 
-![RESTful Routes](assets/RESTful-routes.png)
+| URL              | HTTP Verb | Action  |
+|------------------|-----------|---------|
+| /                | GET       | index   |
+| /reviews/new     | GET       | new     |
+| /reviews         | POST      | create  |
+| /reviews/:id     | GET       | show    |
 
-We've already completed the index, new, and create actions.
+We've already completed the index, new, and create actions. Now you will add a show action that will display a single resource via it's id.
 
 Now let's setup the **show** action so we give each single review its own page and unique url path.
 
 # Show One Review
 
-Remember always start with what the user will see and do. So if we want to create the show action, we'll want to start by making a link to the review from our index action template. Our route has to follow the `/reviews/:id` structure.
+Remember always start with what the user will see and do. To create the show action, you will want to start by making a link to the review from our index action template. Your route has to follow the `/reviews/:id` structure.
 
 MongoDB automatically creates an `_id` attribute on anything you save. So we can use that `_id` attribute for our `:id` in the route.
 
 ```html
-<!-- reviews-index.handlebars -->
+<!-- views/reviews-index.handlebars -->
 
 <h1>Reviews</h1>
+
+<a href="/reviews/new">New Review</a>
+
 {{#each reviews}}
-  <a href="/reviews/{{this._id}}">
-    <h5>{{this.title}}</h5>
-    <small>{{this.movieTitle}}</small>
-  </a>
+  <h2><a href="/reviews/{{this._id}}">{{this.title}}</a></h2>
+  <small>{{this.movieTitle}}</small>
 {{/each}}
 ```
 
@@ -37,7 +43,7 @@ What happens if you click on one of those links? A friendly error! Let's do what
 ...
 
 // SHOW
-app.get('/reviews/:id', function (req, res) {
+app.get('/reviews/:id', (req, res) => {
   res.send('I\'m a review')
 });
 ```
@@ -54,11 +60,13 @@ Ok time to add a template with an actual `review` object!
 ...
 
 // SHOW
-app.get('/reviews/:id', function (req, res) {
-  Review.findById(req.params.id).exec(function (err, review) {
-    res.render('reviews-show', {review: review});
+app.get('/reviews/:id', (req, res) => {
+  Review.findById(req.params.id).then((review) => {
+    res.render('reviews-show', { review: review })
+  }).catch((err) => {
+    console.log(err.message);
   })
-});
+})
 ```
 
 Now if we go to the route, we'll see the error that no template `reviews-show` is found. Great! Let's make it.
@@ -67,7 +75,7 @@ Now if we go to the route, we'll see the error that no template `reviews-show` i
 <!-- views/reviews-show.handlebars -->
 
 <h1>{{review.title}}</h1>
-<h5>{{review.movieTitle}}</h5>
+<h2>{{review.movieTitle}}</h2>
 <p>{{review.description}}</p>
 ```
 
@@ -95,12 +103,13 @@ That's better. What else could we do now that we have this show route?
 It makes sense from the user's perspective that after we create a new review, we should be automatically redirected to it, no? Let's change our create route to redirect to the show path.
 
 ```js
-// app.js
-
 // CREATE
-app.post('/reviews', function (req, res) {
-  Review.create(req.body, function(err, review) {
-    res.redirect('/reviews/' + review._id);
+app.post('/reviews', (req, res) => {
+  Review.create(req.body).then((review) => {
+    console.log(review)
+    res.redirect('/reviews/' + review._id) // Redirect to reviews/:id
+  }).catch((err) => {
+    console.log(err.message)
   })
 })
 ```
