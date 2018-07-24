@@ -209,6 +209,14 @@ Now add some Bootstrap classes to `reviews-form.handlebars` partial. These class
 
 How does she look?
 
+# Now Commit
+
+```bash
+$ git add .
+$ git commit -m 'Added vanilla bootstrap'
+$ git push
+```
+
 # Onward! Almost Done!
 
 Almost done! Let's finish it off.

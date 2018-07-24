@@ -36,6 +36,8 @@ Once we have this single `Review` resource build, we can move onto making an ass
 1. Users can comment on reviews (comments#create)
 1. Users can delete comments (comments#destroy)
 
+As we finish and test user stories we'll be committing to github :octopus:.
+
 # Getting Started - Node.JS and `npm`
 
 Now that we have some user stories, let's bootstrap an Express.js project so we can start on the first user story in the next chapter of this tutorial.
@@ -176,3 +178,20 @@ app.get('/', (req, res) => {
 ```
 
 Now when you visit `localhost:3000` you should still see "Hello World!" but now inside an `h1` tag.
+
+# Initialize and Commit
+
+Now that you have a bootstrapped project initialize and commit to github
+
+```bash
+$ git init
+$ git add .
+$ git commit -m 'init'
+```
+
+Now go to github and create a public repository called `Rotten-Potatoes-Tutorial`, and now associate it as a remote for your local git project and then push to it.
+
+```bash
+$ git remote add origin GITHUB-REPO-URL
+$ git push origin master -u
+```

@@ -250,6 +250,14 @@ Use an `{{#each ...}}` block to display one copy of the `comment.handlebars` par
 
 Test your work! Navigate to a single Review and add a comment. Submitting the comment should display a new comment below the Comment form.
 
+# Now Commit
+
+```bash
+$ git add .
+$ git commit -m 'Users can destroy comments'
+$ git push
+```
+
 # What Just Happened?
 
 You created a relationship between two different document/records in your database. Reviews each have a unique id. By saving the id of a Review with a Comment comments can find the Review that they are are associated with. Reviews can also find all of the Comments that are associated with their id.

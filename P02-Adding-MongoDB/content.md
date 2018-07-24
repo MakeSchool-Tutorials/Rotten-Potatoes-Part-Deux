@@ -159,3 +159,11 @@ Refresh browser at `localhost:3000`. What do you see?
 > You shouldn't see anything! :D - that's because there are no reviews in your database right now.
 
 In the next lesson we will save a new review to our database. Onward!
+
+# Now Commit
+
+```bash
+$ git add .
+$ git commit -m 'Added MongoDB and Review model'
+$ git push
+```

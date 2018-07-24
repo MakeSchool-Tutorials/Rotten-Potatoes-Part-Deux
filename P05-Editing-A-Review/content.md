@@ -186,6 +186,14 @@ And now we can use this partial to replace that information in both our new and 
 
 Triumph! DRY code. (Don't Repeat Yourself)
 
+# Now Commit
+
+```bash
+$ git add .
+$ git commit -m 'Users can edit and update reviews'
+$ git push
+```
+
 # Extra Credit: "Cancel" buttons
 
 Sometimes people might start making a resource and then want to cancel. Can you add a "Cancel" button next to the "Save Review" button? What will it do? Where will it link to?

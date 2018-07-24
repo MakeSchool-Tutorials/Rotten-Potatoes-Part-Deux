@@ -78,4 +78,4 @@ So now we've completed all our user stories
 1. Users can comment on reviews (comments#create)
 1. Users can delete comments (comments#destroy)
 
-You used **Resource Based Development** and **Resourceful Routing** to 
+You used **Resource Based Development** and **Resourceful Routing** to build a review app. 

@@ -221,6 +221,15 @@ You can create any attributes you like for your model and use various data types
 
 Can you resubmit the form? What happens now?
 
+
+# Now Commit
+
+```bash
+$ git add .
+$ git commit -m 'Users can create reviews'
+$ git push
+```
+
 # Extra Credit: Adding a Rating Attribute
 
 Can you add a rating attribute that is a `Number`, and then use `<select>` and `<option>`'s elements to have a dropdown for users to select `0-5` a stars rating? You might have to google for an example to see how this works.

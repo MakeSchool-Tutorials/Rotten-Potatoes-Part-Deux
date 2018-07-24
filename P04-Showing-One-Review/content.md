@@ -114,4 +114,12 @@ app.post('/reviews', (req, res) => {
 })
 ```
 
+# Now Commit
+
+```bash
+$ git add .
+$ git commit -m 'Users can see single reviews'
+$ git push
+```
+
 Now our user experience is getting very smooth, and our code is getting more and more complete. Onward!

@@ -50,4 +50,12 @@ app.delete('/reviews/:id', function (req, res) {
 })
 ```
 
-We did it! All RESTful routes are complete! It ain't pretty though... let's work on that next.
+We did it! All **Resourceful Routes** for the `Review` resource are complete! It ain't pretty though... let's work on that next.
+
+# Now Commit
+
+```bash
+$ git add .
+$ git commit -m 'Users can destroy reviews'
+$ git push
+```

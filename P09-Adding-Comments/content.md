@@ -79,3 +79,11 @@ Add the partial to the bottom of `views/review-show.handlebars`.
 ```
 
 For now the form action is empty. You should be able to see the form but, nothing will happen if you click submit.
+
+# Now Commit
+
+```bash
+$ git add .
+$ git commit -m 'Users can see comments on a review'
+$ git push
+```
