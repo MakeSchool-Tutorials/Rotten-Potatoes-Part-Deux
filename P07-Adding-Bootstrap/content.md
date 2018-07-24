@@ -3,13 +3,14 @@ title: "Styling with Bootstrap"
 slug: adding-bootstrap
 ---
 
-Now that you have the user's experience mapped out and the functionality built, you can style your pages using Twitter's project [Bootstrap](http://getbootstrap.com/). Bootstrap is the web's most popular CSS framework.
+Now that you have the user's experience mapped out and the functionality built, you can style your pages using Twitter's project [Bootstrap](http://getbootstrap.com/). Bootstrap is the web's most popular **CSS Framework**.
 
 The main elements we will be using are the...
 
 * Grid
 * Navbar
 * Forms
+* Inputs
 * Buttons
 
 There is a lot more that you can explore and even extend and modify.

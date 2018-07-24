@@ -11,7 +11,7 @@ Comments will be treated like Reviews they will have a model that defines them, 
 
 Follow the same approach used in the tutorial, start with what users will see. Users reading a Review may want to write a comment and read comments posted by other users. Adding comments will require a form to enter the comment.
 
-## Create a partial for the comment form
+# Create a partial for the comment form
 
 Putting the comment form in a partial will make your code modular and help keep it organized. Make a new file `views/partials/comment-form.handlebars`.
 
@@ -51,7 +51,7 @@ Putting the comment form in a partial will make your code modular and help keep 
 
 Notice you used the same class names and markup used in the Reviews Form. This form only has three form elements. One input for the title of the comment, a text area for the content of the comment, and a button to submit the form.
 
-## Display the Comment
+# Display the Comment
 
 Add the partial to the bottom of `views/review-show.handlebars`.
 

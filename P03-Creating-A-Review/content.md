@@ -5,20 +5,20 @@ slug: creating-a-review
 
 Remember we are doing Resourceful and RESTful architecture to our MVC structured app. We've made some views in the `views` folder, instantiated a model, and put our controller logic (our routes) into the `app.js` file. As our model and controller logic grows we can move them into other files. For this app it is so simple, that we'll just leave all that logic in the `app.js` file.
 
-As for the RESTful routes, we've created just one: the index action for our `Review` resource.
+As for the **Resourceful Routes**, we've created just one: the index action for our `Review` resource.
 
 Remember the previous table that showed a hypothetical set of routes for service like Instagram.
 Here it is again for review.
 
 | URL              | HTTP Verb | Action  |
 |------------------|-----------|---------|
-| /photos          | GET       | index   |
-| /photos/new      | GET       | new     |
-| /photos          | POST      | create  |
-| /photos/:id      | GET       | show    |
-| /photos/:id/edit | GET       | edit    |
-| /photos/:id      | PATCH/PUT | update  |
-| /photos/:id      | DELETE    | destroy |
+| /reviews          | GET       | index   |
+| /reviews/new      | GET       | new     |
+| /reviews          | POST      | create  |
+| /reviews/:id      | GET       | show    |
+| /reviews/:id/edit | GET       | edit    |
+| /reviews/:id      | PATCH/PUT | update  |
+| /reviews/:id      | DELETE    | destroy |
 
 
 What do the routes look like for the app your are currently building?

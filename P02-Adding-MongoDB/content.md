@@ -139,13 +139,17 @@ app.get('/', (req, res) => {
 })
 ```
 
-A Mongoose model has many functions you can call on to query, create, and update documents in the MongoDB. We're going to use the `.find()`. The `find()` method returns a `Promise`. A `Promise` is an `Object` that represents represents a value that will be provided in the future.
+A Mongoose model has many functions you can call on to query, create, and update documents in the MongoDB. We're going to use the `.find()`. The `find()` method returns a **Promise**. A **Promise** is an object that represents represents a value that will be provided in the future.
 
-Call `.then()` and provide a function for the promise to call when it resolves.
+Call `.then()` and provide a function for the **Promise** to call when it **resolves**—when it finished whatever it was doing, in the case of this mongoose function, the **promise resolves** once the data comes back from the database.
 
-`Reviews.find().then((review) => { ...executed when the promise resolves... })`
+```
+Reviews.find().then((review) => {
+  // Code in here is executed when the promise resolves
+})
+```
 
-Use `.catch()` and provide a function for the promise to call if the `Promise` is rejected. A `Promise` is rejected if it fails.
+Use `.catch()` and provide a function for the promise to call if the **Promise** is rejected. A **Promise** is rejected if it fails.
 
 `Reviews.find().then((review) => { ... }).catch((err) => { ...executed if the promise is rejected... })`
 

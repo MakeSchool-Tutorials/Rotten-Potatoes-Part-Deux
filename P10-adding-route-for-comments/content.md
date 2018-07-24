@@ -5,7 +5,7 @@ slug: adding-route-for-comments
 
 Now it's time to add a route to handle comments.
 
-# Defining the Comments Route
+# Creating Comments
 
 You need to define a route. Here is the list of the current routes with a new one added for the comment form at the bottom.
 
@@ -15,37 +15,46 @@ You need to define a route. Here is the list of the current routes with a new on
 | /reviews/new     | GET       | new     |
 | /reviews         | POST      | create  |
 | /reviews/:id     | GET       | show    |
+| /reviews/:id/edit| GET       | edit    |
+| /reviews/:id     | PUT/PATCH | update  |
 | /reviews/:id     | DELETE    | Destroy |
-| /reviews/comment | POST      | create  |
+| /reviews/comments | POST      | create  |
 
 The Comment route uses the POST method since creating a Comment will be sending data and creating new resources.
 
-## Seting the action on the Comment form
+# Setting the Action on the Comment Form
 
 Get the form to call the new route by adding an action. Make sure to set the method as `post`, use the route defined above.
 
 ```HTML
 <!-- views/partials/comment-form.handlebars -->
 
-<form action="/reviews/comment" method="post">
+<form action="/reviews/comments" method="post">
   <fieldset>
     ...
 ```
 
-## Adding the Review Id to the form
+# Associating Comments with Reviews through Review Id
 
-Every comment will need something to connect it to the Review it was written for.
+Comments belong to a single review, so we need to keep track of this relationship. We need to **Associate** a comment with a review. The comment will be a **child** to the **parent** review. This relationship can be expressed through these two phrases:
 
-## Add a hidden field
+```
+Reviews have many comments
+Comments belong to a review
+```
 
-To do this you'll need to include the `_id` of the review with the form. One way you can accomplish this is using a hidden form field. A hidden field is an input tag that has a value that isn't visible in the browser.
+We'll associate a comment with a review by attaching a `reviewId` attribute to each comment that points to its parent review id. We have to set this at the time of creation, so we can do this by adding a hidden input field that sends in the parent review id.
+
+# Add a Hidden Field
+
+Let's include the `_id` of the review with the form. One way you can accomplish this is using a hidden form field. A hidden field is an input tag that has a value that isn't visible in the browser.
 
 Add a hidden field to the form and set the value to the id of the review:
 
 ```HTML
 <!-- views/partials/comment-form.handlebars -->
 
-<form action="/reviews/comment" method="post">
+<form action="/reviews/comments" method="post">
   <input type="hidden" value="{{review._id}}" name="reviewId">
   <fieldset>
     ...
@@ -55,14 +64,14 @@ The hidden field get's a value from the `review._id` and has a name of `reviewId
 
 Submitting this form will include the id of the review along with the title and content input by the user writing the comment.
 
-## Define a route  
+# Define a Route  
 
 Define a new route in express to handle this new form.
 
 ```JavaScript
 ...
 // NEW Comment
-app.post('/reviews/comment', (req, res) => {
+app.post('/reviews/comments', (req, res) => {
   res.send('reviews comment')
 })
 ...
@@ -70,7 +79,7 @@ app.post('/reviews/comment', (req, res) => {
 
 This should print the message 'reviews comment' to the browser when the form is submitted. This is good test to check if everything is working so far.
 
-## Comment Model
+# Comment Model
 
 To save comments to the database you need a Comment model. You'll need to define a new model for Comments; `app.js` is getting pretty crowded it would be good to move your models into their own files and folders.
 
@@ -121,7 +130,7 @@ Now import `models/review.js` into `app.js`. Add the following near the top of `
 
 `const Review = require('./models/review')`
 
-## Adding a reference to a Review inside a Comment
+# Adding a reference to a Review inside a Comment
 
 Every Comment will need to have reference to a Review. This reference is the `_id` of the Review. Remember, id's are unique so every Review can ask for all Comments that reference it's id. Or conversely, any Comment will be able to refer to the Review the Comment was written for through the the review id it owns.
 
@@ -156,13 +165,13 @@ You can check your work by testing your project in the browser. Any errors shoul
 
 Submitting a comment the browser should show the meesage: 'reviews comment' from `res.send('reviews comment')` from the post comment route in app.js.
 
-Revisit the post comment route now. Open app.js and look for `app.post('/reviews/comment', ...)`. You need to create a new comment and then reload the page. Make the changes below:
+Revisit the post comment route now. Open app.js and look for `app.post('/reviews/comments', ...)`. You need to create a new comment and then reload the page. Make the changes below:
 
 ```JavaScript
 // NEW Comment
-app.post('/reviews/comment', (req, res) => {
+app.post('/reviews/comments', (req, res) => {
   Comment.create(req.body).then((comment) => {
-    res.redirect('/reviews/' + comment.reviewId)
+    res.redirect(`/reviews/'${comment.reviewId}`)
   }).catch((err) => {
     console.log(err.message)
   })
@@ -171,7 +180,7 @@ app.post('/reviews/comment', (req, res) => {
 
 Test your work. Write a comment and submit the form. This should show the comment in the console: `console.log(comment)`. If there are any errors they should appear in the console.
 
-## Loading Comments for a Review
+# Loading Comments for a Review
 
 You still can't see comments in the browser. Let's tackle that problem next.
 
@@ -198,7 +207,7 @@ This is an interesting use of `Promise`! `Promise.all()` runs any number of asyn
 
 In the code block above there are two requests `[findReviews, findComments]` when these resolve `values[0]` will be an array if reviews, and `values[1]` will be an array of comments.
 
-## Displaying comments
+# Displaying comments
 
 Now that you have an array of comments we need to display them.
 
@@ -241,7 +250,7 @@ Use an `{{#each ...}}` block to display one copy of the `comment.handlebars` par
 
 Test your work! Navigate to a single Review and add a comment. Submitting the comment should display a new comment below the Comment form.
 
-## What just happened?
+# What Just Happened?
 
 You created a relationship between two different document/records in your database. Reviews each have a unique id. By saving the id of a Review with a Comment comments can find the Review that they are are associated with. Reviews can also find all of the Comments that are associated with their id.
 

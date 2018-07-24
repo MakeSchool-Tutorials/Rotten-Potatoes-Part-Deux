@@ -3,14 +3,16 @@ title: "Edit Route: Editing and Updating a Resource"
 slug: editing-a-review
 ---
 
-Now we're checking off the seven RESTful and Resourceful routes. But we're not done until all of them are complete.
+Now we're checking off the seven **Resourceful Routes**. But we're not done until all of them are complete.
 
-* Index
-* Create
-* Show
-* **Edit**
-* **Update**
-* Delete
+| URL              | HTTP Verb | Action  |
+|------------------|-----------|---------|
+| /                | GET       | index   |
+| /reviews/new     | GET       | new     |
+| /reviews         | POST      | create  |
+| /reviews/:id     | GET       | show    |
+| /reviews/:id/edit     | GET       | edit    |
+| /reviews/:id     | PUT/PATCH | update  |
 
 Normally in a site like Rotten Potatoes, we would only want authors of reviews to have the permission to edit or delete a review. However, because we do not have authentication yet, we're just going to let anyone edit and delete reviews.
 
@@ -116,7 +118,7 @@ Now you can create your update action and it will receive requests with a PUT me
 // UPDATE
 app.put('/reviews/:id', (req, res) => {
   Review.findByIdAndUpdate(req.params.id, req.body).then((review) => {
-    res.redirect('/reviews/' + review._id)
+    res.redirect(`/reviews/${review._id}`)
   }).catch((err) => {
     console.log(err.message)
   })

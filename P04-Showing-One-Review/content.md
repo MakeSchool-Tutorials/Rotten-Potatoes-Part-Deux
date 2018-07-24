@@ -3,7 +3,7 @@ title: "Show Route: See One Resource"
 slug: showing-one-review
 ---
 
-We are building out all the RESTful routes for our `Review` resource.
+We are building out all the **Resourceful Routes** for our `Review` resource.
 
 | URL              | HTTP Verb | Action  |
 |------------------|-----------|---------|
@@ -20,7 +20,7 @@ Now let's setup the **show** action so we give each single review its own page a
 
 Remember always start with what the user will see and do. To create the show action, you will want to start by making a link to the review from our index action template. Your route has to follow the `/reviews/:id` structure.
 
-MongoDB automatically creates an `_id` attribute on anything you save. So we can use that `_id` attribute for our `:id` in the route.
+MongoDB automatically creates an `_id` attribute on anything you save. So we can use that `_id` attribute for our `:id` in the route. This is called the **Url or Request Parameter** and we access it in Express using the `req.params` parameter inside a controller route.
 
 ```html
 <!-- views/reviews-index.handlebars -->
@@ -107,7 +107,7 @@ It makes sense from the user's perspective that after we create a new review, we
 app.post('/reviews', (req, res) => {
   Review.create(req.body).then((review) => {
     console.log(review)
-    res.redirect('/reviews/' + review._id) // Redirect to reviews/:id
+    res.redirect(`/reviews/${review._id}`) // Redirect to reviews/:id
   }).catch((err) => {
     console.log(err.message)
   })

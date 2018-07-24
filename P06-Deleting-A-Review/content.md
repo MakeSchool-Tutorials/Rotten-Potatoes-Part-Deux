@@ -11,6 +11,8 @@ So we've come to the end of our RESTful and Resourceful routes. Only one to go: 
 | /reviews/new     | GET       | new     |
 | /reviews         | POST      | create  |
 | /reviews/:id     | GET       | show    |
+| /reviews/:id/edit     | GET       | edit    |
+| /reviews/:id     | PUT/PATCH | update  |
 | /reviews/:id     | DELETE    | Destroy |
 
 # What the User Sees
