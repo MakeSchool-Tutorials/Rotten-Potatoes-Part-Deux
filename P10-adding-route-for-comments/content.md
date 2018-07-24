@@ -245,4 +245,4 @@ Test your work! Navigate to a single Review and add a comment. Submitting the co
 
 You created a relationship between two different document/records in your database. Reviews each have a unique id. By saving the id of a Review with a Comment comments can find the Review that they are are associated with. Reviews can also find all of the Comments that are associated with their id.
 
-This is a one to many relationship. This an important concept in database design, and an important tool you will use when managing data. 
+This is a one to many relationship. This an important concept in database design, and an important tool you will use when managing data.

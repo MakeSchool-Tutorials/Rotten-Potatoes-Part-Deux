@@ -1,9 +1,9 @@
 ---
-title: "Adding Comments"
+title: "Adding Comments (Form)"
 slug: adding-comments
 ---
 
-At this point you should have a functioning site that creates and saves Reviews to a database. This system manages a single resource, which we've called a 'Review'. In this section you will add a new resource which will represent comments that visitors can add to Reviews.
+At this point you should have a functioning site that creates and saves Reviews to a database. This system manages a *single resource*, which we've called a 'Review'. In this section you will add a new resource which will represent comments that visitors can add to Reviews.
 
 Comments will be treated like Reviews they will have a model that defines them, and they will be stored as documents in the database.
 
