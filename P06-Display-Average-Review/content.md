@@ -3,6 +3,8 @@ title: "Adding AJAX to Forms"
 slug: add-ajax
 ---
 
+
+
 # New Feature Branch
 
 Following the best practice of using feature branches, we're going to create a new feature branch to add AJAX functionality with Axios to our project.
@@ -12,9 +14,7 @@ $ git checkout -b ajax
 $ git branch
 ```
 
-# Admin Dashboard
-
-Remember to say Resouceful. What is an admin dashboard? It is a list of reviews right? That means it should live here: `/reviews` and the code should be in `reviews.js`. Well maybe, or it could live here `/admin` and we could make a new controller called `admin.js`.
+#
 
 # Git Commit
 
