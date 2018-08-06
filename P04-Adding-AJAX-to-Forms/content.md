@@ -222,6 +222,11 @@ Now we'll use the `.prepend()` function and a [template literal](https://develop
              <div class="card-block">
                <h4 class="card-title">${response.title}</h4>
                <p class="card-text">${response.content}</p>
+               <p>
+                  <form method="POST" action="/reviews/comments/${response._id}?_method=DELETE">
+                    <button class="btn btn-link" type="submit">Delete</button>
+                  </form>
+               </p>
              </div>
            </div>
           `
