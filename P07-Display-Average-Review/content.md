@@ -1,9 +1,9 @@
 ---
-title: "Adding AJAX to Forms"
-slug: add-ajax
+title: "Display Average Review"
+slug: average-review
 ---
 
-
+Your team is requesting that we display movies' average review rating.
 
 # New Feature Branch
 

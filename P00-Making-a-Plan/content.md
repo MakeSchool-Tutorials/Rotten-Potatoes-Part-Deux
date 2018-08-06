@@ -3,17 +3,19 @@ title: "Making a Plan"
 slug: making-a-plan
 ---
 
+So you went live with your new startup **Rotten Potatoes**, and right away you got feedback from your users. They want reviews to be organized and reliably grouped by movie. They also want to see the movies trailer and poster.
+
+Besides these requests, you have a few things you think should happen too, namely some automated testing.
+
+# User Stories (For Now)
+
 At the beginning of any project, we always want to make a plan. And that plan comes in the form of **User Stories**.
 
 Some of these user stories will require major refactoring of our app. to
 
-# User Stories
-
-For this tutorial here are the user stories we'll be developing:
+For now, here are the user stories you could write to encapsulate the feedback you are getting from your users.
 
 1. User can see recent movies from TheMovieDB
 1. User can see one Movie, including the poster and trailer
 1. User reviews are associated with one movie
-1. User does not have to reload the page to add a review or other form submissions (use Axios for PUT/POST/DELETE actions)
-1. Admin can see an admin dashboard of reviews
 1. Add 100% test coverage for all routes
