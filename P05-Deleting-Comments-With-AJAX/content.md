@@ -7,7 +7,7 @@ We can create comments asynchronously now using a **Client-Side Architecture**, 
 
 # Updating the Template
 
-Since we are going to send a delete message straight to the server with AJAX, we don't actaully even need the form tag we were using before. We can just use a button. But we need to include the comment's id otherwise we won't know which comment to delete, so we can use a `data-` HTML attribute and customize it to be called `data-comment-id`.
+Since we are going to send a delete message straight to the server with AJAX, we don't actually even need the form tag we were using before. We can just use a button. But we need to include the comment's id otherwise we won't know which comment to delete, so we can use a `data-` HTML attribute and customize it to be called `data-comment-id`.
 
 Change this:
 
@@ -18,13 +18,28 @@ Change this:
 
 ```
 
-to this in both your `scripts.js` and your `comment.handlebars` files.
+to this in both your `comment.handlebars` and `scripts.js` files.
 
 ```html
-<button class="btn btn-link" id="deleteComment" data-comment-id=${response._id}>Delete</button>
-
+<!--comment.handlebars-->
 <button class="btn btn-link" id="deleteComment" data-comment-id="{{this._id}}">Delete</button>
 ```
+
+```javascript
+//scripts.js
+document.getElementById('comments').prepend(
+  `
+   <div class="card">
+     <div class="card-block">
+       <h4 class="card-title">${response.title}</h4>
+       <p class="card-text">${response.content}</p>
+       <button class="btn btn-link" id="deleteComment" data-comment-id=${response._id}>Delete</button>
+     </div>
+   </div>
+  `
+);
+```
+
 
 # Add our Script Using Axios
 
