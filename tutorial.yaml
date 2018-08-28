@@ -1,4 +1,4 @@
-title: "Rotten Potatoes - Movie Reviews with Express.js"
+title: "Rotten Potatoes - Part Deux"
 cover: cover.jpg
 teaser_text: |
-    Learn the fundamentals of Model View Controller server architecture and RESTful and Resourceful routing with Node.js, Express.js, and MongoDB.
+    Go back to your Rotten Potatoes and update it to use an external movie API, more complex associations, and follow the more modern client-side, service-based architecture.
