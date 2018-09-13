@@ -65,7 +65,7 @@ Now we need to make the controller route to render this template.
 
 const Review = require('./models/review')
 
-export default function (app) {
+modules.export = function (app) {
 
   // NEW Comment
   app.get('/admin', (req, res) => {
