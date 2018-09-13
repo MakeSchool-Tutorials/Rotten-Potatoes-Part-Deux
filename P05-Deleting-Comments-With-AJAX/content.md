@@ -21,9 +21,9 @@ Change this:
 to this in both your `scripts.js` and your `comment.handlebars` files.
 
 ```html
-<button class="btn btn-link" id="deleteComment" data-comment-id=${response._id}>Delete</button>
+<button class="btn btn-link delete-comment" data-comment-id=${response._id}>Delete</button>
 
-<button class="btn btn-link" id="deleteComment" data-comment-id="{{this._id}}">Delete</button>
+<button class="btn btn-link delete-comment" data-comment-id="{{this._id}}">Delete</button>
 ```
 
 # Add our Script Using Axios
@@ -31,7 +31,7 @@ to this in both your `scripts.js` and your `comment.handlebars` files.
 No we need to detect the click event on the `commentId` button and submit an `axios.delete()` function.
 
 ```js
-document.getElementById('deleteComment').addEventListener('click', (e) => {
+document.querySelector('.delete-comment').addEventListener('click', (e) => {
   console.log("click!")
   let commentId = this.getAttribute('data-comment-id')
   axios.delete(`/reviews/comments/${commentId}`)
@@ -101,7 +101,7 @@ And we need to update this in the `scripts.js` file
 Now that we've got the id we can remove it:
 
 ```js
-document.getElementById('deleteComment').addEventListener('click', (e) => {
+document.getElementById('delete-comment').addEventListener('click', (e) => {
   console.log("click!")
   let commentId = this.getAttribute('data-comment-id')
   axios.delete(`/reviews/comments/${commentId}`)
