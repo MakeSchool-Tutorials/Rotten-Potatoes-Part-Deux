@@ -144,7 +144,7 @@ That may look like a lot of code, but it gets us a pretty cool thing, which is t
 
 # Responding With JSON
 
-So now we're sending there request **Asynchronously** as an **AJAX Request**. We have to update our server so it behaves properly.
+So now we're sending the request **Asynchronously** as an **AJAX Request**. We have to update our server so it behaves properly.
 
 Now if we sent this request to the server code as it stands today what would happen?
 
