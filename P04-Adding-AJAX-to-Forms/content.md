@@ -120,12 +120,17 @@ Let's take this step by step. We're going to do everything upto the request to t
 document.getElementById("newComment").addEventListener("submit", e => {
     // prevent the default form behavior
     e.preventDefault();
+    
     // serialize the form data into an object
-    let comment = this.serializeArray()
+    let comment = {};
+    const inputs = document.getElementsByClassName('form-control');
+    for (var i = 0; i < inputs.length; i++) {
+      comment[inputs[i].name] = inputs[i].value;
+    }
+    
     // use axios to initialize a post request and send in the form data
 
-
-    axios.post('/user', comment)
+    axios.post('/reviews/comments', comment)
       .then(function (response) {
         // wait for the success response from the server
         console.log(response);
