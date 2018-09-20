@@ -22,9 +22,13 @@ $ git branch
 
 Let's start using JavaScript on the client (what it was invented for!).
 
-Remember that an Express.js app serves all client-side assets in its `public` folder, so that is where we'll put our JavaScript scripts.
+Make a folder called `public`, and add the following code to your `app.js` file with your other middleware. This code will tell your Express.js app to serve all client-side assets in its `public` folder, so that is where we'll put our JavaScript scripts.
 
-Let's add a file called `scripts.js` in the `public/javascript` directory.
+```js
+app.use(express.static('public'));
+```
+
+Now make a `public/javascript` directory and add a file called `scripts.js` with a single `alert()` call:
 
 ```js
 // javascript/scripts.js
