@@ -44,7 +44,7 @@ Let's comment out the `/` route in `reviews.js` and add a root route to our `mov
 
 ```js
 app.get('/', (req, res) => {
-  req.render('movies-index');
+  res.render('movies-index');
 })
 ```
 
