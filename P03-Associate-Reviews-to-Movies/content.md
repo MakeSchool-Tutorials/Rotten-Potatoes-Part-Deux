@@ -53,7 +53,7 @@ app.get('/movies/:movieId/reviews/new', (req, res) => {
 Now we'll add a hidden field somewhere within the `<form>` tag block. We'll also need to update the action value in the form tag blog to send to our new nested resourceful routes.
 
 ```html
-<!-- movies-new.handlebars -->
+<!-- reviews-new.handlebars -->
 
 <form action="/movies/{{movieId}}/reviews">
 
@@ -103,11 +103,16 @@ First query them in the route.
 
 ...
 
+// SHOW
 app.get('/movies/:id', (req, res) => {
   moviedb.movieInfo({ id: req.params.id }).then(movie => {
+
+    // FIND THIS MOVIE'S REVIEWS
     Review.find({ movieId: req.params.id }).then(reviews => {
+      // THEN RENDER THE MOVIES-SHOW TEMPLATE
       res.render('movies-show', { movie: movie, reviews: reviews });
     })
+
   }).catch(console.error)
 })
 

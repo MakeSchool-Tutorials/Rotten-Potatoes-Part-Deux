@@ -16,18 +16,17 @@ Now here is a bit of a challenge. Instead of giving you the code, here are some 
 
 > [solution]
 >
-```js
-// movies.js
-
-...
-
-app.get('/movies/:id', (req, res) => {
-  moviedb.movieInfo({ id: req.params.id }).then(movie => {
-    res.render('movies-show', { movie: movie });
-  }).catch(console.error)
-})
-
-```
+> ```js
+> // movies.js
+>
+> ...
+>
+> app.get('/movies/:id', (req, res) => {
+>   moviedb.movieInfo({ id: req.params.id }).then(movie => {
+>     res.render('movies-show', { movie: movie });
+>   }).catch(console.error)
+> })
+> ```
 >
 
 # Movie Show Template

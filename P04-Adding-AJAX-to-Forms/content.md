@@ -34,6 +34,8 @@ alert("hello world");
 Then link it in the `<head>` tag of your layout like this.
 
 ```html
+<!-- main.handlebars -->
+
 <head>
   ...
   <script type="text/javascript" src="/javascript/scripts.js"></script>
@@ -42,6 +44,23 @@ Then link it in the `<head>` tag of your layout like this.
 ```
 
 Now check and see that your alert works.
+
+Hmmm not working yet...
+
+
+That's because Express is so bare bones, it won't even serve public assets like stylesheets, javascript scripts, and images unless you explicitly tell it to.
+
+```js
+// app.js
+
+...
+// MIDDLEWARE
+app.use(express.static('public'));
+
+...
+```
+
+Now refresh your browser and see if your alert shows. Should work!
 
 # Including Axios and Smoke Testing It
 
@@ -88,7 +107,7 @@ Let's look at `reviews-show.handlebars` where people can comment. We'll change t
 to
 
 ```HTML
-<form action="#" id="newComment">
+<form action="#" id="new-comment">
 ```
 
 We'll use the `id` attribute to attach an **Event Listener**
@@ -117,7 +136,7 @@ Let's take this step by step. We're going to do everything upto the request to t
 // scripts.js
 
 // listen for a form submit event
-document.getElementById("newComment").addEventListener("submit", e => {
+document.getElementById("new-comment").addEventListener("submit", e => {
     // prevent the default form behavior
     e.preventDefault();
     // serialize the form data into an object
@@ -125,7 +144,7 @@ document.getElementById("newComment").addEventListener("submit", e => {
     // use axios to initialize a post request and send in the form data
 
 
-    axios.post('/user', comment)
+    axios.post('/comments', comment)
       .then(function (response) {
         // wait for the success response from the server
         console.log(response);

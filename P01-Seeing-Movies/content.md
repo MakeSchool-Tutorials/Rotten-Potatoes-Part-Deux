@@ -44,7 +44,7 @@ Let's comment out the `/` route in `reviews.js` and add a root route to our `mov
 
 ```js
 app.get('/', (req, res) => {
-  req.render('movies-index');
+  res.render('movies-index');
 })
 ```
 
@@ -65,7 +65,8 @@ $ npm install moviedb-promise --save
 ```
 
 ```js
-// movies.js
+// controllers/movies.js
+
 const MovieDb = require('moviedb-promise')
 const moviedb = new MovieDb('your api key')
 
@@ -115,6 +116,8 @@ Here's what we have to play with:
 ```
 
 Now that you've got this information make a thumbnail that displays the title and the poster. The thumbnail should be an <a> tag so it is clickable and go to `/movies/:id` where the `:id` is the id provided from the API.
+
+Hint: to show an image with the poster use something like this: `<img src="{{this.poster_path}}" />`.
 
 # Optional Extra Stretch: Genres
 
