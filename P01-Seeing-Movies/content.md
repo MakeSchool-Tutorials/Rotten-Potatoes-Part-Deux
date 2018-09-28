@@ -16,7 +16,7 @@ You should see you are in a new branch called `movies`.
 
 # The MovieDB
 
-We're going to use The MovieDB to see recent and popular movies and search for movies.
+We're going to use The MovieDB to search and view recent + popular movies.
 
 [Here are the docs](https://developers.themoviedb.org/3/getting-started/introduction)
 
@@ -38,7 +38,7 @@ So make that `movies.js` file and add it to your `app.js`.
 
 # Updating Root Route
 
-When you go to Rotten Tomatoes, notice that the root route is not actually of reviews, it is of movies. We shoul do that too!
+When you go to Rotten Tomatoes, notice that the root route is not actually of reviews, it is of movies. We should do that too!
 
 Let's comment out the `/` route in `reviews.js` and add a root route to our `movies.js` file
 
@@ -90,7 +90,7 @@ And now we need to show the list of results in the template.
 {{/each}}
 ```
 
-Here's what we have to play with:
+Here's the JSON data we have to play with:
 
 ```
 {
@@ -115,7 +115,7 @@ Here's what we have to play with:
 }
 ```
 
-Now that you've got this information make a thumbnail that displays the title and the poster. The thumbnail should be an <a> tag so it is clickable and go to `/movies/:id` where the `:id` is the id provided from the API.
+Now that you've got this information make a thumbnail that displays the title and the poster. The thumbnail should be an `<a>` tag so it is clickable link to `/movies/:id` where the `:id` is the id provided from the API.
 
 Hint: to show an image with the poster use something like this: `<img src="{{this.poster_path}}" />`.
 

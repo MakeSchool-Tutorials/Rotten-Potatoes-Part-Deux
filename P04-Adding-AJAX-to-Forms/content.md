@@ -22,9 +22,13 @@ $ git branch
 
 Let's start using JavaScript on the client (what it was invented for!).
 
-Remember that an Express.js app serves all client-side assets in its `public` folder, so that is where we'll put our JavaScript scripts.
+Make a folder called `public`, and add the following code to your `app.js` file with your other middleware. This code will tell your Express.js app to serve all client-side assets in its `public` folder, so that is where we'll put our JavaScript scripts.
 
-Let's add a file called `scripts.js` in the `public/javascript` directory.
+```js
+app.use(express.static('public'));
+```
+
+Now make a `public/javascript` directory and add a file called `scripts.js` with a single `alert()` call:
 
 ```js
 // javascript/scripts.js
@@ -139,12 +143,17 @@ Let's take this step by step. We're going to do everything upto the request to t
 document.getElementById("new-comment").addEventListener("submit", e => {
     // prevent the default form behavior
     e.preventDefault();
+
     // serialize the form data into an object
-    let comment = this.serializeArray()
+    let comment = {};
+    const inputs = document.getElementsByClassName('form-control');
+    for (var i = 0; i < inputs.length; i++) {
+      comment[inputs[i].name] = inputs[i].value;
+    }
+
     // use axios to initialize a post request and send in the form data
 
-
-    axios.post('/comments', comment)
+    axios.post('/reviews/comments', comment)
       .then(function (response) {
         // wait for the success response from the server
         console.log(response);
@@ -163,7 +172,7 @@ That may look like a lot of code, but it gets us a pretty cool thing, which is t
 
 # Responding With JSON
 
-So now we're sending there request **Asynchronously** as an **AJAX Request**. We have to update our server so it behaves properly.
+So now we're sending the request **Asynchronously** as an **AJAX Request**. We have to update our server so it behaves properly.
 
 Now if we sent this request to the server code as it stands today what would happen?
 

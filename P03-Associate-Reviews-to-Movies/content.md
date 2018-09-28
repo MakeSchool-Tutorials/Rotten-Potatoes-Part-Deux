@@ -3,7 +3,7 @@ title: "Associate Reviews to Movies"
 slug: associate-reviews-to-movies
 ---
 
-Still on the same branch, we're going to keep going and associate reviews to movies and then list our reviews for each movie on the movie show template.
+Still on the same branch, we're going to keep going and associate reviews to movies and then list our reviews for each movie on the movie-show template.
 
 # Review Movie Button
 
