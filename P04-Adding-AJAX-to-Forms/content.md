@@ -5,9 +5,9 @@ slug: add-ajax
 
 Ok so now you are live with your big new refactor, but the job of a developer is never ending.
 
-The first complaint people have is that writing comments is "slow and clunky". This is because we've used HTML to submit the comments#new form, users would be happier if they could just see the comment pop down into the list of comments, instead of reloading the whole page.
+The first complaint people have is that writing comments is "slow and clunky". This is because we've used a vanilla HTML form's `action=""` attribute to submit the comments#new form. This requires the page to reload which feels clunky. Users would be happier if they could just see the comment pop down into the list of comments, instead of reloading the whole page.
 
-You offer to remove as many page loads as you can using asynchronous AJAX requests. Not only will these AJAX requests make the site feel snappier at times, it will also move some of the architecture of the project from a **Server-Side** or **Monolithic** to a **Client-Side** or **Service-Based** architecture.
+You decide to use asynchronous AJAX requests to avoid clunky page reloads. Not only will these AJAX requests make the site feel snappier at times, it will also move some of the architecture of the project from a **Server-Side** or **Monolithic** to a **Client-Side** or **Service-Based** architecture.
 
 # New Feature Branch
 
@@ -20,9 +20,13 @@ $ git branch
 
 # Smoke Testing the Script
 
+In order to make AJAX request, we are going to have to write JavaScript scripts that your browser will run. It might feel strange at first, but JavaScript was made for the client, and only recently has been used on the server. So even though you feel a lot more confident with it on the server right now, it was originally developed to do what we are about to do: client-side scripting!
+
 Let's start using JavaScript on the client (what it was invented for!).
 
-Make a folder called `public`, and add the following code to your `app.js` file with your other middleware. This code will tell your Express.js app to serve all client-side assets in its `public` folder, so that is where we'll put our JavaScript scripts.
+To have custom JavaScript scripts we need to host them on our server, but tell the server to serve them to the client. Then we have to link them to out HTML in our `<head></head>` tag or at the bottom of the page just before the `</body>` tag ends.
+
+First, make a folder called `public`, and add the following code to your `app.js` file with your other middleware. This code will tell your Express.js app to serve all client-side assets in its `public` folder, so that is where we'll put our JavaScript scripts.
 
 ```js
 app.use(express.static('public'));
@@ -43,32 +47,14 @@ Then link it in the `<head>` tag of your layout like this.
 <head>
   ...
   <script type="text/javascript" src="/javascript/scripts.js"></script>
-  ...
 </head>
 ```
 
 Now check and see that your alert works.
 
-Hmmm not working yet...
-
-
-That's because Express is so bare bones, it won't even serve public assets like stylesheets, javascript scripts, and images unless you explicitly tell it to.
-
-```js
-// app.js
-
-...
-// MIDDLEWARE
-app.use(express.static('public'));
-
-...
-```
-
-Now refresh your browser and see if your alert shows. Should work!
-
 # Including Axios and Smoke Testing It
 
-As a shortcut, let's include [Axios]() in our client using a Content Delivery Network (CDN)
+As a shortcut, let's include [Axios](https://github.com/axios) in our client using a Content Delivery Network (CDN).
 
 
 ```html
@@ -114,7 +100,7 @@ to
 <form action="#" id="new-comment">
 ```
 
-We'll use the `id` attribute to attach an **Event Listener**
+We'll use the `id` attribute as a **DOM Selector** to select the form, and then we'll attach an **Event Listener** to the **submit** action. So we'll setup some code on a trigger that will fire when a user submits a form. In essence, we'll be highjacking vanilla HTML forms and using them for our own purposes!!! hahahahhahha!!! (maniacal laughter).
 
 # Writing the Script and an Event Listener
 

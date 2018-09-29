@@ -9,8 +9,8 @@ Still on the same branch, we're going to keep going and add a show route for the
 
 Now here is a bit of a challenge. Instead of giving you the code, here are some instructions and hints to follow to write the movies show route.
 
-1. Add the new route to `movies.js`
-1. Make the route resourceful for the Movie resource show route
+1. Add the new route to `movies.js` controller.
+1. Make the route resourceful for the Movie resource `show` route
 1. Use the `monviedb-promise` method `.movieInfo()` and pass to it the movie's MovieDB id from your route. Look at the [method docs here](https://developers.themoviedb.org/3/movies/get-movie-details)
 1. Now respond with the `movies-show` template passing the `movie` from the API response.
 
@@ -40,7 +40,7 @@ Now let's make the template. The template should look like this beautiful and ma
 
 <div class="row">
     <div class="col-sm-4">
-        <img class="img-responsive" src="https://image.tmdb.org/t/p/w500{{movie.poster_path}}"/>
+        <img class="img-responsive" src="https://image.tmdb.org/t/p/w300{{movie.poster_path}}"/>
     </div>
     <div class="col-sm-8">
         <h1>{{movie.title}}</h1>
@@ -55,7 +55,7 @@ To display images use the `<img src="..."/>` html tag. [Here are the docs for Th
 
 # Displaying the Trailer
 
-So what if we want to show the movie's trailer (if it exists)?
+Remember that the users really want to see the movie's trailer so they can decide if they want to go see it. So what if we want to show the movie's trailer (if it exists)?
 
 Well we can!
 
@@ -95,4 +95,4 @@ Now to the template we add a youtube embed statement
 
 # Git Commit
 
-Commit your code!
+Commit your code to your movies feature branch. Don't merge with master yet, because we are not done. Onward!

@@ -3,7 +3,7 @@ title: "Deleting Comments with AJAX"
 slug: deleting-comments-with-ajax
 ---
 
-We can create comments asynchronously now using a **Client-Side Architecture**, but that's only half the story for comments. Let's also remove them async.
+We can create comments asynchronously now using a **Client-Side Architecture**, but that's only half the story for comments. Let's also remove them async. They'll just disappear without a page reload.
 
 # Updating the Template
 
@@ -34,7 +34,7 @@ document.getElementById('comments').prepend(
      <div class="card-block">
        <h4 class="card-title">${response.title}</h4>
        <p class="card-text">${response.content}</p>
-       <button class="btn btn-link" id="deleteComment" data-comment-id=${response._id}>Delete</button>
+       <button class="btn btn-link" id="delete-comment" data-comment-id=${response._id}>Delete</button>
      </div>
    </div>
   `
@@ -95,7 +95,7 @@ In order to accomplish this we need each comment's `_id` attribute to be attache
     <h4 class="card-title">{{this.title}}</h4>
     <p class="card-text">{{this.content}}</p>
     <!-- Delete link -->
-    <p><button class="btn btn-link" id="deleteComment" data-comment-id=${response._id}>Delete</button></p>
+    <p><button class="btn btn-link" id="delete-comment" data-comment-id=${response._id}>Delete</button></p>
   </div>
 </div>
 ```
@@ -108,7 +108,7 @@ And we need to update this in the `scripts.js` file
    <div class="card-block">
      <h4 class="card-title">${response.title}</h4>
      <p class="card-text">${response.content}</p>
-     <p><button class="btn btn-link" id="deleteComment" data-comment-id=${response._id}>Delete</button></p>
+     <p><button class="btn btn-link" id="delete-comment" data-comment-id=${response._id}>Delete</button></p>
    </div>
  </div>
 `

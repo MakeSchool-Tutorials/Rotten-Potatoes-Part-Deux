@@ -3,9 +3,9 @@ title: "Making a Plan"
 slug: making-a-plan
 ---
 
-So you went live with your new startup **Rotten Potatoes**, and right away you got feedback from your users. They want reviews to be organized and reliably grouped by movie. They also want to see the movies trailer and poster.
+So you went live with your new startup **Rotten Potatoes**, and right away you got feedback from your users. They want reviews to be organized and reliably grouped by movie. They also want to see the movie's trailer.
 
-Besides these requests, you have a few things you think should happen too, namely some automated testing.
+Besides these requests, you have a few things you think should happen too...
 
 # User Stories (For Now)
 

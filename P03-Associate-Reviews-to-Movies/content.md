@@ -3,18 +3,21 @@ title: "Associate Reviews to Movies"
 slug: associate-reviews-to-movies
 ---
 
+Right now you can see all the movies, and you can see one movie, but what about your reviews? They still have a `movieTitle` attribute, but that won't connect them to the movieDB movies we are getting from the API. We need to connect movies to reviews, we need to **Associate** them via a new `movieId` attribute we add to reviews and set upon creation of a review. Then we'll be able to see all of a movie's reviews on the movie-show page.
+
 Still on the same branch, we're going to keep going and associate reviews to movies and then list our reviews for each movie on the movie-show template.
 
 # Review Movie Button
 
-Let's start from what the user sees.
+Even though we know that eventually we'll need to add a `movieId` attribute to the review model, let's not start with the model, let's follow the practice of **User Centered Development** and start from what the user sees.
 
-Since reviews will be associated with their parent movie, we cannot have a generic "New Review" button in the navbar. Making a new review must be associated only with its movie. So let's move our "New Review" button from the navbar into the `movie-show.handlebars` template. Let's put it in the upper right hand corner.
+Since reviews will be associated with their parent movie, we cannot have a generic "New Review" button in the navbar any more. Making a new review must be associated only with its movie. So let's move our "New Review" button from the navbar into the `movie-show.handlebars` template. Let's put it in the upper right hand corner of the movie-show template instead.
 
-Also remember that we will be nesting reviews inside movies for our routes so look carefully at the resourceful structure of the new route to the reviews#new action.
+We also need to keep track of the movie's ID, so let's nest the Review resource routes into movies. e.g. `POST /movies/:id/reviews`, `GET /movies/:movieId/reviews/:id`. If this is the case then the route to the new reviews route should look like this:
 
 ```html
 <!-- movies-show.handlebars -->
+
 <div class="text-right">
     <a href="/movies/{{movie.id}}/reviews/new" class="btn btn-primary">Write Review</a>
 </div>
@@ -22,7 +25,9 @@ Also remember that we will be nesting reviews inside movies for our routes so lo
 ...
 ```
 
-That looks nice. Now to make it work we have to rewrite the route in the `reviews.js` controller.
+That looks nice.
+
+Now click the button. It should break but in a predictable way. A good engineer can predict what an error will be. It should be a 404 because we haven't changed the reviews#new route to match our new nested movie/review routes. To make it work we have to rewrite the path to the show route in the `reviews.js` controller.
 
 ```js
 
@@ -31,7 +36,7 @@ app.get('/movies/:movieId/reviews/new', (req, res) => {
 })
 ```
 
-Click the button and check that it redirects to the new form correctly.
+Click the button and check that it redirects to the new form correctly. 404 is gone! (See if you can predict errors before they happen.)
 
 # Adding movieId to Reviews - Hidden Input Field
 
@@ -66,7 +71,7 @@ Now we'll add a hidden field somewhere within the `<form>` tag block. We'll also
 </form>
 ```
 
-Update your reviews#create route path, and add a console log to see if the req.body is coming through with the movieId.
+Update your reviews#create route path, and add a console log to see if the `req.body` is coming through with the movieId.
 
 ```js
 app.post('/movies/:movieId/reviews', (req, res) => {
@@ -78,7 +83,9 @@ If it is then you can complete the create logic and save the new review to the d
 
 # Adding Attribute to Review Model
 
-But wait! If you save now, that will throw an error that our model is missing an attribute. There is no attribute called movieId in the `review.js` model. Let's add it.
+But wait! Another error prediction opportunity.
+
+If you save now, the model will throw an error because our model is missing an attribute for `movieId`. There is no attribute called `movieId` in the `review.js` model. Let's add it.
 
 ```js
 //review.js
@@ -90,13 +97,13 @@ But wait! If you save now, that will throw an error that our model is missing an
 ...
 ```
 
-Now if you submit the form it should work.
+This attribute is required because we don't want any reviews to be orphaned without a movie. Now if you submit the form it should work.
 
 # Adding Reviews to the Movie Show Template
 
-Don't forget about your reviews you already have. We're going to put those below the trailer.
+Now that we've associated reviews with their movie, we're have to display those below the trailer video.
 
-First query them in the route.
+First query for the reviews in the movies#show route.
 
 ```js
 // movies.js
@@ -111,10 +118,10 @@ app.get('/movies/:id', (req, res) => {
     Review.find({ movieId: req.params.id }).then(reviews => {
       // THEN RENDER THE MOVIES-SHOW TEMPLATE
       res.render('movies-show', { movie: movie, reviews: reviews });
-    })
+    }).catch(console.error);
 
-  }).catch(console.error)
-})
+  }).catch(console.error);
+});
 
 ```
 
@@ -171,7 +178,9 @@ Then we can use this partial inside our `{{#each}}` call.
 
 # Manual Testing
 
-We don't have automated tests so you have to create a few reviews on a few movies and see that they display properly.
+All the changes we made broke our automated tests... :( sad panda.
+
+So you have to test manually by creating a few reviews on a few movies and see that they display properly.
 
 Can you edit and delete them?
 
