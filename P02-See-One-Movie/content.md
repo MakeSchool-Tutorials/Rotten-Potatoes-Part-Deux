@@ -66,31 +66,26 @@ Well we can!
 ```js
 // movies.js
 
-app.get('/movies/:id', (req, res) => {
+router.get('/movies/:id', (req, res) => {
   moviedb.movieInfo({ id: req.params.id }).then(movie => {
-    if (movie.video) {
-      moviedb.movieVideos({ id: req.params.id }).then(videos => {
-        movie.trailer_youtube_id = videos.results[0].key
-        renderTemplate(movie)
-      })
-    } else {
-      renderTemplate(movie)
-    }
+    moviedb.movieTrailers({ id: req.params.id }).then(videos => {
+      movie.trailer_youtube_id = videos.youtube[0].source
+      console.log('VIDEOS.TRAILER_YOUTUBE_ID', videos.trailer_youtube_id)
 
-    function renderTemplate(movie)  {
       res.render('movies-show', { movie: movie });
-    }
-
-  }).catch(console.error)
-})
+    }).catch(console.error);
+  }).catch(console.error);
+});
 ```
 
 Now to the template we add a youtube embed statement
 
 ```html
-<div class="embed-responsive embed-responsive-21by9">
-  <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/{{movie.trailer_youtube_id}}?rel=0"></iframe>
-</div>
+<div class="col-sm-12">
+    <div class="embed-responsive embed-responsive-16by9">
+      <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/{{movie.trailer_youtube_id}}?rel=0"></iframe>
+    </div>
+  </div>
 ```
 
 # Git Commit
