@@ -7,11 +7,15 @@ So you went live with your new startup **Rotten Potatoes**, and right away you g
 
 Besides these requests, you have a few things you think should happen too...
 
+# Prerequisites
+
+This tutorial assumes you have already _completed_ the [first Rotten Potatoes tutorial](https://www.makeschool.com/academy/track/rotten-potatoes---movie-reviews-with-express-js). Please do so before starting here with Part Deux.
+
 # User Stories (For Now)
 
 At the beginning of any project, we always want to make a plan. And that plan comes in the form of **User Stories**.
 
-Some of these user stories will require major refactoring of our app. to
+Some of these user stories will require major refactoring of our app.
 
 For now, here are the user stories you could write to encapsulate the feedback you are getting from your users.
 
