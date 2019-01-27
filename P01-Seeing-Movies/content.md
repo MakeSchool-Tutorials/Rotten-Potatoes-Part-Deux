@@ -197,5 +197,5 @@ $ git push
 
 >[challenge]
 >
->1. Can you also request the [Movie Genres](https://developers.themoviedb.org/3/genres/get-movie-list) from the API, then map the genres into the movie's genres and display them in the thumbnail under the title?
+>1. Can you also request the [Movie Genres](https://developers.themoviedb.org/3/genres/get-movie-list) from the API, then map the genres into the movie's genres and display them in the thumbnail under the title? Remember to check out the [moviedb-promise](https://www.npmjs.com/package/moviedb-promise) documentation.
 > 1. Can you think of a better way to get the `src` on the `img` so we aren't reliant on static urls? Can we use the [Configuration method](https://developers.themoviedb.org/3/configuration/get-api-configuration) to always make sure we have the correct url?
