@@ -54,25 +54,30 @@ Now let's make the template. The template should look like this beautiful and ma
 
 Remember, we're constructing the URL from the [docs from the last chapter](https://developers.themoviedb.org/3/configuration/get-api-configuration).
 
-Got our poster, title, and overview/synopsis. Let's bring in that trailer now.
+Refresh your browser and make sure the movies have a poster, title, and overview/synopsis. Let's bring in that trailer now.
 
 # Displaying the Trailer
 
 Remember that the users really want to see the movie's trailer so they can decide if they want to go see it. Well let's make their wishes and desires come true! Cause who can ask for more than a movie trailer?
 
-1. First we have to query the `/videos` method of the API.
-1. Then we can select the first one.
+1. First we have to query the `/videos` method of the API. Check out the [moviedb-promise](https://www.npmjs.com/package/moviedb-promise) docs to see how to do that.
+1. Then we can select the first one, which will be the trailer. Don't believe us? Try out a few movies in the [/videos docs](https://developers.themoviedb.org/3/movies/get-movie-videos) and see for yourself!
 1. Then we can embed the video in the template.
 
+Let's get to it!
+
+>[action]
+> Update your `/show` route in `/controllers/movies.js` to the following:
+>
 ```js
 // movies.js
-
-router.get('/movies/:id', (req, res) => {
+>
+app.get('/movies/:id', (req, res) => {
   moviedb.movieInfo({ id: req.params.id }).then(movie => {
     moviedb.movieTrailers({ id: req.params.id }).then(videos => {
       movie.trailer_youtube_id = videos.youtube[0].source
-      console.log('VIDEOS.TRAILER_YOUTUBE_ID', videos.trailer_youtube_id)
-
+      console.log('VIDEOS.TRAILER_YOUTUBE_ID', movie.trailer_youtube_id)
+>
       res.render('movies-show', { movie: movie });
     }).catch(console.error);
   }).catch(console.error);
@@ -81,14 +86,27 @@ router.get('/movies/:id', (req, res) => {
 
 Now to the template we add a youtube embed statement
 
+>[action]
+> Add the trailer to the `/views/movie-show.handlebars` template:
+>
 ```html
 <div class="col-sm-12">
     <div class="embed-responsive embed-responsive-16by9">
       <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/{{movie.trailer_youtube_id}}?rel=0"></iframe>
     </div>
-  </div>
+</div>
 ```
 
-# Git Commit
+Refresh and see if you can play that trailer for Transformers 17! Or maybe Fast and Furious 10 is out by now...
 
-Commit your code to your movies feature branch. Don't merge with master yet, because we are not done. Onward!
+# Now Commit
+
+>[action]
+>
+```bash
+$ git add .
+$ git commit -m 'Users can see movie pages and trailers'
+$ git push
+```
+
+Commit your code to your movies feature branch. Don't merge with master just yet, because we still got some work to do on this feature. Onward!
