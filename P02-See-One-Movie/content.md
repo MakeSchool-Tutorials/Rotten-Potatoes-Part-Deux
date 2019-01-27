@@ -97,14 +97,17 @@ app.get('/movies/:id', (req, res) => {
 Now to the template we add a youtube embed statement
 
 >[action]
-> Add the trailer to the `/views/movie-show.handlebars` template:
+> Add the trailer to the `/views/movie-show.handlebars` template, underneath the `<div class="col-sm-4">`:
 >
 ```html
-<div class="col-sm-12">
+<div class="col-sm-4">
+...
+</div
+[bold]<div class="col-sm-12">
     <div class="embed-responsive embed-responsive-16by9">
       <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/{{movie.trailer_youtube_id}}?rel=0"></iframe>
     </div>
-</div>
+</div>[/bold]
 ```
 
 Refresh and see if you can play that trailer for Transformers 17! Or maybe Fast and Furious 10 is out by now...
