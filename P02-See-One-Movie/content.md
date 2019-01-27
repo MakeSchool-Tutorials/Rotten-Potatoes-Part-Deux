@@ -85,8 +85,8 @@ Let's get to it!
 app.get('/movies/:id', (req, res) => {
   moviedb.movieInfo({ id: req.params.id }).then(movie => {
     moviedb.movieTrailers({ id: req.params.id }).then(videos => {
-      movie.trailer_youtube_id = videos.youtube[0].source
-      console.log('VIDEOS.TRAILER_YOUTUBE_ID', movie.trailer_youtube_id)
+      movie.trailer_youtube_id = videos.youtube[0].source;
+      console.log('VIDEOS.TRAILER_YOUTUBE_ID', movie.trailer_youtube_id);
 >
       res.render('movies-show', { movie: movie });
     }).catch(console.error);
