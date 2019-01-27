@@ -3,6 +3,18 @@ title: "Associate Reviews to Movies"
 slug: associate-reviews-to-movies
 ---
 
+## User Stories
+
+1. ~~User can see recent movies from TheMovieDB~~
+1. ~~User can see one Movie, including the poster and trailer~~
+1. **User reviews are associated with the corresponding movie**
+    1. **Allow users to review movie from the `movies-show` page**
+    1. **Pass the `movieId` through the review form**
+    1. **Update the `review` model**
+    1. **Add Reviews to the Movie Show Template**
+    1. **Test!**
+1. Add 100% test coverage for all routes
+
 Right now you can see all the movies, and you can see one movie, but what about your reviews? They still have a `movieTitle` attribute, but that won't connect them to the movieDB movies we are getting from the API. We need to connect movies to reviews, we need to **Associate** them via a new `movieId` attribute we add to reviews and set upon creation of a review. Then we'll be able to see all of a movie's reviews on the movie-show page.
 
 Still on the same branch, we're going to keep going and associate reviews to movies and then list our reviews for each movie on the movie-show template.

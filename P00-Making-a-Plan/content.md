@@ -21,5 +21,5 @@ For now, here are the user stories you could write to encapsulate the feedback y
 
 1. User can see recent movies from TheMovieDB
 1. User can see one Movie, including the poster and trailer
-1. User reviews are associated with one movie
+1. User reviews are associated with the corresponding movie
 1. Add 100% test coverage for all routes

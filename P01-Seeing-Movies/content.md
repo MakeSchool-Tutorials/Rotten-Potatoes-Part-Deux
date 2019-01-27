@@ -3,6 +3,17 @@ title: "Seeing Movies"
 slug: seeing-movies
 ---
 
+## User Stories
+
+1. **User can see recent movies from TheMovieDB**
+    1. **Set up a feature branch**
+    1. **Integrate with The MovieDB API**
+    1. **Update the root route and view to show recent movies**
+    1. **Call the MovieDB API**
+1. User can see one Movie, including the poster and trailer
+1. User reviews are associated with the corresponding movie
+1. Add 100% test coverage for all routes
+
 You should already have a Git repo set up from the first Rotten Potatoes tutorial. We're going to build off of that code for this one, so no need to set up a new repo. Instead, we're going to build a **feature branch** for the repo!
 
 ## New GitHub Feature Branch

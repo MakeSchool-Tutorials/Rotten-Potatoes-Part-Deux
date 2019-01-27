@@ -5,6 +5,16 @@ slug: see-one-movie
 
 Still on the same branch, we're going to keep going and add a `show` route for the movies so those posters will take you somewhere when you click on them!
 
+## User Stories
+
+1. ~~User can see recent movies from TheMovieDB~~
+1. **User can see one Movie, including the poster and trailer**
+    1. **Build a `/show` route for movies**
+    1. **Build a `movies-show` template**
+    1. **Add the movie's trailer to the template**
+1. User reviews are associated with the corresponding movie
+1. Add 100% test coverage for all routes
+
 # Show Route
 
 Now here is a bit of a challenge. Instead of giving you the code, here are some instructions and hints to follow to write the movies `show` route.
