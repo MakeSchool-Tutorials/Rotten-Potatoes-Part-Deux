@@ -92,7 +92,7 @@ Now we'll add a hidden field somewhere within the `<form>` tag block. We'll also
 >
 ...
 >
-    <input type="hidden" name="movieId" value="{{movieId}}">
+    <input type="hidden" class="form-control" name="movieId" value="{{movieId}}">
 </form>
 ```
 
@@ -399,8 +399,8 @@ div class="card">
 <!-- views/partials/comment-form.handlebars -->
 >
 <form action="/movies/{{review.movieId}}/reviews/{{review._id}}/comments" method="post">
-  <input type="hidden" value="{{review._id}}" name="reviewId">
-  <input type="hidden" name="movieId" value="{{review.movieId}}">
+  <input type="hidden" class="form-control" value="{{review._id}}" name="reviewId">
+  <input type="hidden" class="form-control" name="movieId" value="{{review.movieId}}">
   <fieldset>
   ...
 ```
