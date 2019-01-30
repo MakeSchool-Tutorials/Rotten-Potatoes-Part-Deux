@@ -254,7 +254,7 @@ So we'll need to set an HTML tag that we can put the comments in.
 </div>
 ```
 
-Now we'll use the [`.prepend()` function](https://developer.mozilla.org/en-US/docs/Web/API/ParentNode/prepend) and a [template literal](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals), a feature of JavaScript ES6, to add the comment to the top of the stack of comments.
+Now we'll use the [`insertAdjacentHTML` function](https://developer.mozilla.org/en-US/docs/Web/API/Element/insertAdjacentHTML) and a [template literal](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals), a feature of JavaScript ES6, to add the comment to the top of the stack of comments.
 
 >[action]
 > Save the `movieId`, and then Update your `axios.post/` body to the following in `/public/javascript/scripts.js`:
