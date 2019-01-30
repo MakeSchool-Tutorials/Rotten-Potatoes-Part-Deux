@@ -426,7 +426,7 @@ module.exports = (app) => {
 [bold]    app.delete('/movies/:movieId/reviews/:reviewId/comments/:id', function (req, res) {[/bold]
         console.log("DELETE comment")
         Comment.findByIdAndRemove(req.params.id).then((comment) => {
-[bold]            res.redirect(`/movies/${req.body.movieId}/reviews/${comment.reviewId}`);[/bold]
+[bold]            res.redirect(`/movies/${req.params.movieId}/reviews/${comment.reviewId}`);[/bold]
         }).catch((err) => {
             console.log(err.message);
         })
