@@ -26,7 +26,7 @@ In order to make an `AJAX` request, we are going to have to write JavaScript scr
 
 Let's start using JavaScript on the client!
 
-To have custom JavaScript scripts we need to host them on our server, but tell the server to serve them to the client. Then we have to link them to out to our HTML views through the `<head></head>` tag or at the bottom of the page just before the `</body>` tag ends.
+To have custom JavaScript scripts we need to host them on our server, but tell the server to serve them to the client. Then we have to link them to out to our HTML views through at the bottom of the page just before the `</body>` tag ends.
 
 >[action]
 > First, make a folder called `public` if it doesn't exist already, and add the following code to your `app.js` file with your other middleware:
@@ -49,7 +49,7 @@ app.use(express.static('public'));
 alert("hello world");
 ```
 
-Then link it in the `<head>` tag of your layout:
+Then link it near the bottom of the page tag of your layout:
 
 >[action]
 > Add the script near the bottom of the page in `/views/layouts/main.handlebars`
@@ -77,15 +77,16 @@ Now refresh your browser and see that your alert works.
 As a shortcut, let's include [Axios](https://github.com/axios) in our client using a [Content Delivery Network (CDN)](https://en.wikipedia.org/wiki/Content_delivery_network).
 
 >[action]
-> Add `Axios` to the `<head>` tag in `/views/layouts/main.handlebars`
+> Add `Axios` to the near the bottom of the page in `/views/layouts/main.handlebars`. Make sure it's underneath `scripts.js`:
 >
 ```html
-<head>
-  ...
-  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-  <script type="text/javascript" src="/javascript/scripts.js"></script>
-  ...
-</head>
+...
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script type="text/javascript" src="/javascript/scripts.js"></script>
+</body>
+...
 ```
 
 Ok now we can make our first Axios request. For fun we'll call [thecolorapi.com](thecolorapi.com) (an API for colors and their names).

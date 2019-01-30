@@ -9,36 +9,32 @@ We can create comments asynchronously now using a **Client-Side Architecture**, 
 
 Since we are going to send a delete message straight to the server with AJAX, we don't actually even need the form tag we were using before. We can just use a button. But we need to include the comment's id otherwise we won't know which comment to delete, so we can use a `data-` HTML attribute and customize it to be called `data-comment-id`.
 
-Change this:
-
-```HTML
-<form method="POST" action="/reviews/comments/${response._id}?_method=DELETE">
-  <button class="btn btn-link" type="submit">Delete</button>
-</form>
-
-```
-
-to this in both your `comment.handlebars` and `scripts.js` files.
-
+>[action]
+> Replace the `<p><form>` element in both `/views/partials/comment.handlebars` to this  `button` element:
+>
 ```html
-<button class="btn btn-link delete-comment" data-comment-id=${response._id}>Delete</button>
-
-<button class="btn btn-link delete-comment" data-comment-id="{{this._id}}">Delete</button>
+<!-- views/partials/comment.handlebars -->
+>
+...
+<button class="btn btn-link delete-comment" data-comment-id=${comment._id}>Delete</button>
 ```
-
-```javascript
-//scripts.js
-document.getElementById('comments').prepend(
+> Also change the `<p><form>` element within the template in `/public/javascript/scripts.js` to the this `button` element:
+>
+```js
+> // scripts.js
+...
+document.getElementById('comments').insertAdjacentHTML('afterbegin',
   `
    <div class="card">
      <div class="card-block">
        <h4 class="card-title">${response.title}</h4>
        <p class="card-text">${response.content}</p>
-       <button class="btn btn-link" id="delete-comment" data-comment-id=${response._id}>Delete</button>
+       <button class="btn btn-link delete-comment" data-comment-id="{{response.data.comment._id}}">Delete</button>
      </div>
    </div>
   `
 );
+...
 ```
 
 
@@ -46,18 +42,29 @@ document.getElementById('comments').prepend(
 
 No we need to detect the click event on the `commentId` button and submit an `axios.delete()` function.
 
+>[action]
+> Add the following after the code for `new-comment` in `/public/javascript/scripts.js`:
+>
 ```js
-document.querySelector('.delete-comment').addEventListener('click', (e) => {
-  console.log("click!")
-  let commentId = this.getAttribute('data-comment-id')
-  axios.delete(`/reviews/comments/${commentId}`)
-    .then(response => {
-      console.log(response)
-    })
-    .catch(error => {
-      console.log(error)
-    });
-})
+// scripts.js
+>
+if (document.getElementById('new-comment')) {
+...
+}
+>
+if (document.querySelector('.delete-comment')) {
+  document.querySelector('.delete-comment').addEventListener('click', (e) => {
+    console.log("click!")
+    let commentId = this.getAttribute('data-comment-id')
+    axios.delete(`/reviews/comments/${commentId}`)
+      .then(response => {
+        console.log(response)
+      })
+      .catch(error => {
+        console.log(error)
+      });
+  })
+}
 ```
 
 Now we can see if the response is working by clicking the button both by opening our browser's console and seeing "click!" printed out, and by refreshing the page and see if the comment we clicked on is deleted.
