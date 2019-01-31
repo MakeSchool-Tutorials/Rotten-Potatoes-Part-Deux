@@ -199,12 +199,14 @@ Great work here! You've successfully begun the process of **using a GitHub Featu
 
 # Now Commit
 
+Note that we need to make sure to set the upstream branch when we push for the first time:
+
 >[action]
 >
 ```bash
 $ git add .
 $ git commit -m 'Users can see movies currently playing'
-$ git push
+$ git push --set-upstream origin movies
 ```
 
 # Stretch Challenges
