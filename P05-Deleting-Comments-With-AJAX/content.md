@@ -88,7 +88,7 @@ Now we need to update the server to respond with JSON so we can manage the whole
 ...
 >
 // DELETE
-app.delete('/movies/:movieId/reviews/:reviewId/comments/:id', function (req, res) {
+app.delete('/movies/:movieId/reviews/:reviewId/comments/:id', (req, res) => {
   console.log("DELETE comment")
   Comment.findByIdAndRemove(req.params.id).then(comment => {
     res.status(200).send(comment);
