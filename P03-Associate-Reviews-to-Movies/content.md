@@ -13,7 +13,8 @@ slug: associate-reviews-to-movies
     1. **Update the `review` model**
     1. **Add Reviews to the Movie Show Template**
     1. **Test!**
-1. Add 100% test coverage for all routes
+1. Users can add or delete comments without requiring a page refresh
+1. Users can access an admin dashboard that lists all reviews and allows them to delete them
 
 Right now you can see all the movies, and you can see one movie, but what about your reviews? They still have a `movieTitle` attribute, but that won't connect them to the movieDB movies we are getting from the API.
 
@@ -434,7 +435,6 @@ module.exports = (app) => {
 }
 ```
 
-
 # Now Commit
 
 >[action]
@@ -470,3 +470,5 @@ Now push to your remote github repo and Heroku.
 $ git push origin master
 $ git push heroku master
 ```
+
+You've accomplished a lot in this chapter! As of that last push you've now fully **integrated an external API to add a new resource, rewired existing routes into nested routes, and completed your first feature using a Feature Branch strategy!** Congrats! Now let's take a stab at `AJAX`.

@@ -3,15 +3,28 @@ title: "Adding AJAX to Forms"
 slug: add-ajax
 ---
 
+## User Stories
+
+1. ~~User can see recent movies from TheMovieDB~~
+1. ~~User can see one Movie, including the poster and trailer~~
+1. ~~User reviews are associated with the corresponding movie~~
+1. **Users can add or delete comments without requiring a page refresh**
+    1. **Add `AJAX` and `Axios` to the app**
+    1. **Create client-side JavaScript to handle events and call `Axios`**
+    1. **Update our views and controllers to handle JSON responses from `Axios`**
+    1. **Use `Axios` to POST Comments (handle the `/create` route)**
+    1. **Use `Axios` to DELETE Comments (handle the `/delete` route)**
+1. Users can access an admin dashboard that lists all reviews and allows them to delete them
+
 Ok so now you are live with your big new refactor, but the job of a developer is never ending.
 
 The first complaint people have is that writing comments is "slow and clunky". This is because we've used a vanilla HTML form's `action=""` attribute to submit the `/comments/new` form. This requires the page to reload which feels clunky. Users would be happier if they could just see the comment pop down into the list of comments, instead of reloading the whole page.
 
-You decide to use **asynchronous `AJAX`** requests to avoid clunky page reloads. Not only will these `AJAX` requests make the site feel snappier at times, it will also move some of the architecture of the project from **Server-Side** or **Monolithic** to **Client-Side** or **Service-Based**.
+You decide to use **[asynchronous `AJAX`](https://en.wikipedia.org/wiki/Ajax_(programming))** requests to avoid clunky page reloads. Not only will these `AJAX` requests make the site feel snappier at times, it will also move some of the architecture of the project from **Server-Side** or **Monolithic** to **Client-Side** or **Service-Based**.
 
 # New Feature Branch
 
-Following the best practice of using feature branches, we're going to create a new feature branch to add `AJAX` functionality with `Axios` to our project.
+Following the best practice of using feature branches, we're going to create a new feature branch to add `AJAX` functionality with [Axios](https://www.npmjs.com/package/axios) to our project.
 
 >[action]
 > Add a new `ajax` branch
@@ -74,7 +87,7 @@ Now refresh your browser and see that your alert works.
 
 # Including Axios and Smoke Testing It
 
-As a shortcut, let's include [Axios](https://github.com/axios) in our client using a [Content Delivery Network (CDN)](https://en.wikipedia.org/wiki/Content_delivery_network).
+As a shortcut, let's include `Axios` in our client using a [Content Delivery Network (CDN)](https://en.wikipedia.org/wiki/Content_delivery_network).
 
 >[action]
 > Add `Axios` to the near the bottom of the page in `/views/layouts/main.handlebars`. Make sure it's underneath `scripts.js`:
@@ -89,7 +102,7 @@ As a shortcut, let's include [Axios](https://github.com/axios) in our client usi
 ...
 ```
 
-Ok now we can make our first Axios request. For fun we'll call [thecolorapi.com](thecolorapi.com) (an API for colors and their names).
+Ok now we can make our first `Axios` request. For fun we'll call [thecolorapi.com](thecolorapi.com) (an API for colors and their names).
 
 >[action]
 > Update `/public/javascript/scripts.js` to the following:
@@ -318,7 +331,7 @@ Comment.find({ reviewId: req.params.id }).then(comments => {
 
 # Take a Moment to Reflect
 
-That may look like we added a lot of code, and for what? Actually quite a lot! This setup gets us a pretty cool thing: _when we write a comment, it just pops off the form and onto the top of the review's comments._
+That may look like we added a lot of code, and for what? Well for one, you've successfully **used `AJAX` requests via `Axios` to do POST actions to the server, and created client-side scripts using JavaScript.** This setup also gets us a pretty cool thing: _when we write a comment, it just pops off the form and onto the top of the review's comments._
 
 As you are using the internet the rest of the week, keep an eye out for how many times your pages are reloading, and how often they don't reload at all. That's AJAX!
 

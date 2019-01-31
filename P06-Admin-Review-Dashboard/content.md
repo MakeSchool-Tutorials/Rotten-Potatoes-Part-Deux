@@ -3,6 +3,18 @@ title: "Admin Review Dashboard"
 slug: admin-dashboard
 ---
 
+## User Stories
+
+1. ~~User can see recent movies from TheMovieDB~~
+1. ~~User can see one Movie, including the poster and trailer~~
+1. ~~User reviews are associated with the corresponding movie~~
+1. ~~Users can add or delete comments without requiring a page refresh~~
+1. **Users can access an admin dashboard that lists all reviews and allows them to delete them**
+    1. **Build an Admin view that displays all reviews**
+    1. **Build an Admin `/index` route**
+    1. **Use `Axios` to handle deletion of reviews from the admin**
+    1. **Build out the `/delete` route in the Admin controller**
+
 Uh-oh - trolls have been posting stupid and repetitive reviews to your database, so your team is requesting an **admin dashboard** to review and quickly delete them.
 
 # New Feature Branch
@@ -191,6 +203,12 @@ app.delete('/admin/reviews/:id', (req, res) => {
 
 Now try deleting a review from the admin, and make sure its deleted not only from the admin, but from the `movies-show` page as well.
 
+Great work! By now you should feel more comfortable with the following, after having done them a few times now:
+
+* **Using `AJAX` requests via `Axios` to do DELETE actions to the server!**
+* **Creating client-side scripts using JavaScript**
+* **Using a Feature Branch strategy**
+
 # Now Commit
 Make sure to test your code before committing!
 
@@ -234,3 +252,7 @@ $ git push heroku master
 > What else can you build out on the admin to give it more functionality?
 
 **Congratulations on finishing your new and improved Rotten Potatoes!!**
+
+# Feedback and Review
+
+Please take a moment to rate your understanding of learning outcomes from this tutorial, and how we can improve it via our [tutorial feedback form](https://goo.gl/forms/jAxU2lxXIWHh4AIq1)

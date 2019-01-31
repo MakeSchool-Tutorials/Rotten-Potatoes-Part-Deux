@@ -12,7 +12,8 @@ slug: seeing-movies
     1. **Call the MovieDB API**
 1. User can see one Movie, including the poster and trailer
 1. User reviews are associated with the corresponding movie
-1. Add 100% test coverage for all routes
+1. Users can add or delete comments without requiring a page refresh
+1. Users can access an admin dashboard that lists all reviews and allows them to delete them
 
 You should already have a Git repo set up from the first Rotten Potatoes tutorial. We're going to build off of that code for this one, so no need to set up a new repo. Instead, we're going to build a **feature branch** for the repo!
 
@@ -20,7 +21,7 @@ You should already have a Git repo set up from the first Rotten Potatoes tutoria
 
 Git is for **versioning** your code so you can **revert** to older versions if you screw up. And it is for **sharing** code and **collaborating** with other developers. In order to do both of these better, Git offers a feature called **branches**. A branch is a _separate version of your code base that is different from other branches_.
 
-So far you have always been coding on the **master** branch, but for this tutorial we are going to practice using named **feature branches** to keep our features _separate from master_. Once we are done with our feature, we will **merge** the feature branch into the master branch, and then we can push master to GitHub and production. **This is an industry-standard for building features for a production use case.**
+So far you have always been coding on the **master** branch, but for this tutorial we are going to practice using named **feature branches** to keep our features _separate from master_. Once we are done with our feature, we will **merge** the feature branch into the master branch, and then we can push master to GitHub and production. **This is an [industry-standard](https://www.atlassian.com/git/tutorials/comparing-workflows/feature-branch-workflow) for building features for a production use case.**
 
 We want to add a feature to group reviews by movie in our app, so let's make a feature branch called `movies`. We'll use the `get checkout -b BRANCH-NAME` command to make a new branch, and then `git branch` to see our branches.
 
@@ -193,6 +194,8 @@ The thumbnail should be an `<a>` tag so it is clickable link to `/movies/:id` wh
 ```
 
 Refresh your browser and check out those sweet sweet posters!
+
+Great work here! You've successfully begun the process of **using a GitHub Feature Branch strategy to refactor a project**, and started down the path of **integrating an external API to add a new resource!**
 
 # Now Commit
 

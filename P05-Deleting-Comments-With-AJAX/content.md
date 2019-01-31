@@ -3,6 +3,19 @@ title: "Deleting Comments with AJAX"
 slug: deleting-comments-with-ajax
 ---
 
+## User Stories
+
+1. ~~User can see recent movies from TheMovieDB~~
+1. ~~User can see one Movie, including the poster and trailer~~
+1. ~~User reviews are associated with the corresponding movie~~
+1. **Users can add or delete comments without requiring a page refresh**
+    1. ~~Add `AJAX` and `Axios` to the app~~
+    1. ~~Create client-side JavaScript to handle events and call `Axios`~~
+    1. ~~Update our views and controllers to handle JSON responses from `Axios`~~
+    1. ~~Use `Axios` to POST Comments (handle the `/create` route)~~
+    1. **Use `Axios` to DELETE Comments (handle the `/delete` route)**
+1. Users can access an admin dashboard that lists all reviews and allows them to delete them
+
 We can create comments asynchronously now using a **Client-Side Architecture**, but that's only half the story for comments. Let's also remove them async. They'll just disappear without a page reload.
 
 # Updating the Template
@@ -194,3 +207,5 @@ Now push to your remote github repo and Heroku.
 $ git push origin master
 $ git push heroku master
 ```
+
+You got POST down, and now you've successfully **used `AJAX` requests via `Axios` to do DELETE actions to the server!** You also got more practice **creating client-side scripts using JavaScript, and using a Feature Branch strategy**. One more User Story to go!

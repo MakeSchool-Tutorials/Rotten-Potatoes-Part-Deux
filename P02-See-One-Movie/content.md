@@ -13,7 +13,8 @@ Still on the same branch, we're going to keep going and add a `show` route for t
     1. **Build a `movies-show` template**
     1. **Add the movie's trailer to the template**
 1. User reviews are associated with the corresponding movie
-1. Add 100% test coverage for all routes
+1. Users can add or delete comments without requiring a page refresh
+1. Users can access an admin dashboard that lists all reviews and allows them to delete them
 
 # Show Route
 
@@ -111,6 +112,8 @@ Now to the template we add a youtube embed statement
 ```
 
 Refresh and see if you can play that trailer for Transformers 17! Or maybe Fast and Furious 10 is out by now...
+
+You're making strong headway on **integrating an external API to add a new resource.** One more chapter and we'll have fully integrated the resource!
 
 # Now Commit
 
