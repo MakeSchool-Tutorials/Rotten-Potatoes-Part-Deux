@@ -31,7 +31,7 @@ Since we are going to send a delete message straight to the server with AJAX, we
 ...
 <button class="btn btn-link delete-comment" data-comment-id="{{comment._id}}" data-comment-reviewId="{{comment.reviewId}}" data-comment-movieId="{{movieId}}">Delete</button>
 ```
-> Also change the `<p><form>` element within the template in `/public/javascript/scripts.js` to the this `button` element:
+> Also change the `<p><form>` element within the template in `/public/javascript/scripts.js` to the this `button` element Don't forget the double quotes `"`:
 >
 ```js
 > // scripts.js
@@ -41,7 +41,7 @@ document.getElementById('comments').insertAdjacentHTML('afterbegin',
      <div class="card-block">
        <h4 class="card-title">${response.title}</h4>
        <p class="card-text">${response.content}</p>
-       <button class="btn btn-link delete-comment" data-comment-id="{{response.data.comment._id}}" data-comment-reviewId="{{response.data.comment.reviewId}}" data-comment-movieId="{{movieId}}"">Delete</button>
+       <button class="btn btn-link delete-comment" data-comment-id="${response.data.comment._id}" data-comment-reviewId="${response.data.comment.reviewId}" data-comment-movieId="${movieId}"">Delete</button>
      </div>
    </div>`
 );
@@ -133,11 +133,11 @@ In order to accomplish this we need each comment's `_id` attribute to be attache
 ...
 >
 document.getElementById('comments').insertAdjacentHTML('afterbegin',
-    `<div class="card" id="{{response.data.comment._id}}">
+    `<div class="card" id="${response.data.comment._id}">
        <div class="card-block">
          <h4 class="card-title">${response.title}</h4>
          <p class="card-text">${response.content}</p>
-         <button class="btn btn-link delete-comment" data-comment-id="{{response.data.comment._id}}" data-comment-reviewId="{{response.data.comment.reviewId}}" data-comment-movieId="{{movieId}}"">Delete</button>
+         <button class="btn btn-link delete-comment" data-comment-id="${response.data.comment._id}" data-comment-reviewId="${response.data.comment.reviewId}" data-comment-movieId="${movieId}">Delete</button>
        </div>
      </div>`
 );
@@ -166,10 +166,76 @@ axios.delete(`/movies/${movieId}/reviews/${reviewId}/comments/${commentId}`)
 
 Try deleting one of your existing comments. Make sure it works properly before moving on!
 
->[challenge]
-> This all works well for existing comments, but what if you want to delete a comment you made by mistake (we've all been there? Notice that if you write a new comment and then immediately try to delete it, nothing happens. This is because the event handler didn't attach to the new comment because the script already ran (if you refresh the page, the delete button will now work).
+# Deletion Refactor
+
+You may have noticed the delete functionality isn't quite 100% yet. Try creating a new comment and then immediately deleting it. It doesn't delete!
+
+**Why do you think this is happening?**
+
+>[solution]
 >
-> See if you can fix this so that a when a user makes a new comment, they can immediately delete it without having to refresh the page.
+> `scripts.js` only runs on when a page loads. Since we're no longer refreshing the page to add a comment, the scripts don't run, and the new comment doesn't get the delete click event added to its delete button!
+
+What we want to do is take our delete code in `scripts.js` and run it immediately after we insert the new comment onto the page. Since we're going to be re-using the same code for more than one purpose, let's make a function for it!
+
+>[action]
+> At the top of `/public/javascript/scripts.js`, add a new function called `deleteComment()` which contains the same code we currently use to add click handlers to delete comments:
+>
+```js
+// scripts.js
+>
+function deleteComment() {
+    document.querySelectorAll('.delete-comment').forEach((commentElement) => {
+        commentElement.addEventListener('click', (e) => {
+            console.log("click!")
+            let commentId = e.target.getAttribute('data-comment-id')
+            let reviewId = e.target.getAttribute('data-comment-reviewId')
+            let movieId = e.target.getAttribute('data-comment-movieId')
+            axios.delete(`/movies/${movieId}/reviews/${reviewId}/comments/${commentId}`)
+                .then(response => {
+                    console.log(response)
+                    comment = document.getElementById(commentId)
+                    comment.parentNode.removeChild(comment); // OR comment.style.display = 'none';
+                })
+                .catch(error => {
+                    console.log(error)
+                    alert('There was an error deleting this comment.')
+                });
+        })
+    })
+}
+```
+
+Now we have this function we can use in multiple places! Let's call it after we add a new comment, and also when we load a page (i.e. in the same location the code was before).
+
+> [action]
+> Call the `deleteComment` method in the following places within `/public/javascript/scripts.js`, removing the duplicated code from the `document.querySelectorAll('.delete-comment')` area:
+>
+```js
+// scripts.js
+...
+>
+// listen for a form submit event
+document.getElementById('new-comment').addEventListener("submit", e => {
+>
+...
+>
+  document.getElementById('comments').insertAdjacentHTML('afterbegin',
+    ...
+  );
+  >
+  // Call this after we use insertAdjacentHTML to add a new comment
+  deleteComment();
+  >
+})
+>
+// Still need to call deleteComment for all other comments on the page when we load a review
+if (document.querySelectorAll('.delete-comment')) {
+    deleteComment();
+}
+```
+
+Now try to create a new comment and immediately delete it. Now we can instantly delete those mistakes!
 
 # Now Commit
 Make sure to test your code before committing!
