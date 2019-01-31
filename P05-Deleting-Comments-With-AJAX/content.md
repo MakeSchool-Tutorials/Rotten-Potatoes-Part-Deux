@@ -183,7 +183,6 @@ $ git merge ajax
 >
 > Now manually retest your code in master to see that everything is working well.
 
-
 # Now Push
 
 Now push to your remote github repo and Heroku.
