@@ -252,7 +252,3 @@ $ git push heroku master
 > What else can you build out on the admin to give it more functionality?
 
 **Congratulations on finishing your new and improved Rotten Potatoes!!**
-
-# Feedback and Review
-
-Please take a moment to rate your understanding of learning outcomes from this tutorial, and how we can improve it via our [tutorial feedback form](https://goo.gl/forms/jAxU2lxXIWHh4AIq1)

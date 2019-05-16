@@ -245,6 +245,7 @@ Notice though that our anchor tag we added to the review title doesn't navigate 
 // SHOW
 app.get('/movies/:movieId/reviews/:id', (req, res) => {
 ...
+})
 ```
 
 Next let's tweak our `reviews-show` template to navigate us back to the movie instead of to home

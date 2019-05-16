@@ -191,6 +191,7 @@ function deleteComment() {
             let commentId = e.target.getAttribute('data-comment-id')
             let reviewId = e.target.getAttribute('data-comment-reviewId')
             let movieId = e.target.getAttribute('data-comment-movieId')
+            // Same code used to add click handlers, except we call delete here
             axios.delete(`/movies/${movieId}/reviews/${reviewId}/comments/${commentId}`)
                 .then(response => {
                     console.log(response)
@@ -275,3 +276,11 @@ $ git push heroku master
 ```
 
 You got POST down, and now you've successfully **used `AJAX` requests via `Axios` to do DELETE actions to the server!** You also got more practice **creating client-side scripts using JavaScript, and using a Feature Branch strategy**. One more User Story to go!
+
+# Feedback and Review - 2 minutes
+
+**We promise this won't take longer than 2 minutes!**
+
+Please take a moment to rate your understanding of learning outcomes from this tutorial, and how we can improve it via our [tutorial feedback form](https://goo.gl/forms/jAxU2lxXIWHh4AIq1)
+
+This allows us to get feedback on how well the students are grasping the learning outcomes, and tells us where we can improve the tutorial experience.
