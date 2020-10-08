@@ -21,7 +21,7 @@ You should already have a Git repo set up from the first Rotten Potatoes tutoria
 
 Git is for **versioning** your code so you can **revert** to older versions if you screw up. And it is for **sharing** code and **collaborating** with other developers. In order to do both of these better, Git offers a feature called **branches**. A branch is a _separate version of your code base that is different from other branches_.
 
-So far you have always been coding on the **master** branch, but for this tutorial we are going to practice using named **feature branches** to keep our features _separate from master_. Once we are done with our feature, we will **merge** the feature branch into the master branch, and then we can push master to GitHub and production. **This is an [industry-standard](https://www.atlassian.com/git/tutorials/comparing-workflows/feature-branch-workflow) for building features for a production use case.**
+So far you have always been coding on the **main** branch, but for this tutorial we are going to practice using named **feature branches** to keep our features _separate from main_. Once we are done with our feature, we will **merge** the feature branch into the main branch, and then we can push main to GitHub and production. **This is an [industry-standard](https://www.atlassian.com/git/tutorials/comparing-workflows/feature-branch-workflow) for building features for a production use case.**
 
 We want to add a feature to group reviews by movie in our app, so let's make a feature branch called `movies`. We'll use the `get checkout -b BRANCH-NAME` command to make a new branch, and then `git branch` to see our branches.
 

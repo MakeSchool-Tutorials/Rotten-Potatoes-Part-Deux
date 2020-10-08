@@ -450,26 +450,26 @@ $ git push
 
 If your code is working and you can fully CRUD all reviews, then you're ready to ship this big refactor to production!
 
-Since the entire feature of adding movies to the app is finished, we can move on to merging this branch with master.
+Since the entire feature of adding movies to the app is finished, we can move on to merging this branch with main.
 
 >[action]
-> Merge this branch into master
+> Merge this branch into main
 >
 ```bash
-$ git checkout master
+$ git checkout main
 $ git merge movies
 ```
 >
-> Now manually retest your code in master to see that everything is working well.
+> Now manually retest your code in main to see that everything is working well.
 
 Now push to your remote github repo and Heroku.
 
 > [action]
-> Push to master and Heroku:
+> Push to main and Heroku:
 >
 ```bash
-$ git push origin master
-$ git push heroku master
+$ git push origin main
+$ git push heroku main
 ```
 
 You've accomplished a lot in this chapter! As of that last push you've now fully **integrated an external API to add a new resource, rewired existing routes into nested routes, and completed your first feature using a Feature Branch strategy!** Congrats! Now let's take a stab at `AJAX`.

@@ -251,28 +251,28 @@ $ git push
 
 # Now Merge
 
-Now merge this branch with master, and push to github and heroku.
+Now merge this branch with main, and push to github and heroku.
 
 >[action]
-> Merge this branch into master
+> Merge this branch into main
 >
 ```bash
-$ git checkout master
+$ git checkout main
 $ git merge ajax
 ```
 >
-> Now manually retest your code in master to see that everything is working well.
+> Now manually retest your code in main to see that everything is working well.
 
 # Now Push
 
 Now push to your remote github repo and Heroku.
 
 > [action]
-> Push to master and Heroku:
+> Push to main and Heroku:
 >
 ```bash
-$ git push origin master
-$ git push heroku master
+$ git push origin main
+$ git push heroku main
 ```
 
 You got POST down, and now you've successfully **used `AJAX` requests via `Axios` to do DELETE actions to the server!** You also got more practice **creating client-side scripts using JavaScript, and using a Feature Branch strategy**. One more User Story to go!

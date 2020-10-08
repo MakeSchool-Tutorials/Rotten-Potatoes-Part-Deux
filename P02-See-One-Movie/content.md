@@ -42,7 +42,7 @@ app.get('/movies/:id', (req, res) => {
 
 # Movie Show Template
 
-Now let's make the template. The template should look like this beautiful and masterful wireframe drawing
+Now let's make the template. The template should look like this beautiful and mainful wireframe drawing
 
 ![movies-show](assets/movies-show.png)
 
@@ -125,4 +125,4 @@ $ git commit -m 'Users can see movie pages and trailers'
 $ git push
 ```
 
-Commit your code to your movies feature branch. Don't merge with master just yet, because we still got some work to do on this feature. Onward!
+Commit your code to your movies feature branch. Don't merge with main just yet, because we still got some work to do on this feature. Onward!
